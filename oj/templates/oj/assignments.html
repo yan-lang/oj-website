@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Assignments
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column mt-2">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-home">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                词法分析 <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-file">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                语法分析
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-shopping-cart">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                语义分析
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-users">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                中间代码生成
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-bar-chart-2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                                代码优化
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-layers">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                目标代码生成
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class='col-md-10 ml-sm-auto px-4 mt-5 mb-5' role="main">
+                <div class='col-md-10 mx-auto'>
+                    <div class='mt-2'>
+                        <div class='assignment-header'>
+                            <h2>编程作业: 词法分析</h2>
+                            <div>
+                                <svg width="1em" height="1em" viewBox="0 0 85 85" version="1.1"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="checkmark.circle.fill" transform="translate(-2891.000000, -618.000000)">
+                                            <g id="Notes" fill="#FFFFFF" fill-rule="nonzero">
+                                                <rect id="artboard" x="0" y="0" width="3300" height="2200"></rect>
+                                            </g>
+                                            <g id="Guides" transform="translate(263.000000, 625.000000)"
+                                               stroke="#27AAE1"
+                                               stroke-width="0.577">
+                                                <line x1="0" y1="71" x2="2773" y2="71" id="Baseline-S"></line>
+                                                <line x1="0" y1="0.541" x2="2773" y2="0.541" id="Capline-S"></line>
+                                            </g>
+                                            <g id="Symbols" transform="translate(498.000000, 618.000000)" fill="#20A85C"
+                                               fill-rule="nonzero">
+                                                <g id="Black-S" transform="translate(2392.570000, 0.000000)">
+                                                    <path d="M42.8281,84.78711 C65.9727,84.78711 84.8203,65.9395 84.8203,42.7949 C84.8203,19.6504 65.9727,0.8027 42.8281,0.8027 C19.6836,0.8027 0.83594,19.6504 0.83594,42.7949 C0.83594,65.9395 19.6836,84.78711 42.8281,84.78711 Z M37.7988,64.5234 C35.6504,64.5234 33.8926,63.4492 32.6719,62.082 L21.7344,49.582 C20.5137,48.2148 20.123,47.0918 20.123,45.6758 C20.123,42.5996 22.7109,40.1582 25.7383,40.1582 C27.4473,40.1582 28.7168,40.9395 29.8398,42.1113 L37.7988,50.998 L52.7402,27.5605 C54.1074,25.4609 55.6211,24.3867 57.7207,24.3867 C60.6992,24.3867 63.3848,26.6816 63.3848,29.709 C63.3848,30.7832 63.043,32.0039 62.2617,33.2246 L42.9746,61.6914 C41.8027,63.4004 39.8496,64.5234 37.7988,64.5234 Z"
+                                                          id="形状"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <span>已通过 · 100/100 分</span>
+                            </div>
+                            <div class="alert alert-primary alert-dismissible fade show mt-2" role="alert">
+                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                        <table class='assignment-deadline-information'>
+                            <tbody>
+                            <tr>
+                                <td><strong>截止时间</strong></td>
+                                <td>
+                                    <div>
+                                        作业截止日期为Jan 26, 11:59 PM PST
+                                    </div>
+                                    <div class="caption-text color-text-secondary">您仍可以在课程结束前完成此作业。</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <nav class="mt-3">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                   role="tab" aria-controls="nav-home" aria-selected="true">说明</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                   role="tab" aria-controls="nav-profile" aria-selected="false">我提交的作业</a>
+                            </div>
+                        </nav>
+
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                 aria-labelledby="nav-home-tab">
+                                <div class='row mt-2'>
+                                    <div class='col-lg-9'>
+                                        <h2>Heading</h2>
+                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                            ac
+                                            cursus
+                                            commodo, tortor
+                                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                                            porta
+                                            sem
+                                            malesuada
+                                            magna mollis euismod. Donec sed odio dui. </p>
+                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                            ac
+                                            cursus
+                                            commodo, tortor
+                                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                                            porta
+                                            sem
+                                            malesuada
+                                            magna mollis euismod. Donec sed odio dui. </p>
+                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                            ac
+                                            cursus
+                                            commodo, tortor
+                                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                                            porta
+                                            sem
+                                            malesuada
+                                            magna mollis euismod. Donec sed odio dui. </p>
+                                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+                                            ac
+                                            cursus
+                                            commodo, tortor
+                                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                                            porta
+                                            sem
+                                            malesuada
+                                            magna mollis euismod. Donec sed odio dui. </p>
+                                        <p><a class="btn btn-secondary" href="#" role="button">View details
+                                            &raquo;</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="alert alert-secondary" role="alert">
+                                            <h3>如何提交</h3>
+                                            <p>准备好提交后，您可以在 '我提交的作业' 选项卡上，上传作业每部分的文件。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                 aria-labelledby="nav-profile-tab">
+                                <div class='row mt-3'>
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary">新建提交</button>
+                                    </div>
+                                </div>
+                                <div class='row mt-3'>
+                                    <div class="col-md-12">
+                                        <h3>你的提交</h3>
+                                        <div class="grade-history container-fluid mt-4">
+                                            <div class="row header">
+                                                <div class="col-8 text-left">
+                                                    日期
+                                                </div>
+                                                <div class="col-1 text-right">
+                                                    分数
+                                                </div>
+                                                <div class="col-3 text-center">
+                                                    通过了吗？
+                                                </div>
+                                            </div>
+                                            <div class="row submission-row">
+                                                <button class='col col-8 text-left nostyle grade-expand' type="button"
+                                                        data-toggle="collapse" data-target="#collapseExample"
+                                                        aria-expanded="false" aria-controls="collapseExample">
+                                                    <svg class="bi bi-chevron-right" width="1em" height="1em"
+                                                         viewBox="0 0 20 20" fill="currentColor"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd"
+                                                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                                                              clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <svg class="bi bi-chevron-down" width="1em" height="1em"
+                                                         viewBox="0 0 20 20" fill="currentColor"
+                                                         xmlns="http://www.w3.org/2000/svg" style="display: none">
+                                                        <path fill-rule="evenodd"
+                                                              d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                                                              clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <span>September 29, 2018 2:51 AM PDT</span>
+                                                </button>
+                                                <div class="col col-1 text-right">
+                                                    100/100
+                                                </div>
+                                                <div class="col col-3 text-center">
+                                                    是
+                                                </div>
+                                            </div>
+                                            <div class="collapse" id="collapseExample">
+                                                <div class="row detail-row">
+                                                    <div class="detail-title col col-8 text-left text-secondary">
+                                                        词法分析
+                                                    </div>
+                                                    <div class="col col-1 text-right text-secondary">
+                                                        100/100
+                                                    </div>
+                                                    <div class="col col-3 text-center text-secondary">
+                                                        <a class="nostyle" data-toggle="collapse"
+                                                           href="#collapseExample3" role="button" aria-expanded="false"
+                                                           aria-controls="collapseExample">
+                                                            显示 评分反馈
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="grade-output collapse" id="collapseExample3">
+                                                    <div class="card rounded-0 mt-2">
+                                                        <div class="card-header">
+                                                            <a class="btn" href="#">lexical.zip</a>
+                                                            <a class="btn float-right" href="#">Download</a>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p class="card-text"> Anim pariatur cliche reprehenderit,
+                                                                enim
+                                                                eiusmod high life accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea proident.
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life
+                                                                accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea proident.
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life
+                                                                accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea proident.
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life
+                                                                accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea
+                                                                proident.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row submission-row">
+                                                <button class='col col-8 text-left nostyle grade-expand' type="button"
+                                                        data-toggle="collapse" data-target="#collapseExample2"
+                                                        aria-expanded="false" aria-controls="collapseExample2">
+                                                    <svg class="bi bi-chevron-right" width="1em" height="1em"
+                                                         viewBox="0 0 20 20" fill="currentColor"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd"
+                                                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                                                              clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <svg class="bi bi-chevron-down" width="1em" height="1em"
+                                                         viewBox="0 0 20 20" fill="currentColor"
+                                                         xmlns="http://www.w3.org/2000/svg" style="display: none">
+                                                        <path fill-rule="evenodd"
+                                                              d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                                                              clip-rule="evenodd"></path>
+                                                    </svg>
+                                                    <span>September 29, 2018 2:51 AM PDT</span>
+                                                </button>
+                                                <div class=" col col-1 text-right">100/100</div>
+                                                <div class="col col-3 text-center">
+                                                    是
+                                                </div>
+                                            </div>
+                                            <div class="collapse" id="collapseExample2">
+                                                <div class="row detail-row">
+                                                    <div class="detail-title col col-8 text-left text-secondary">
+                                                        词法分析
+                                                    </div>
+                                                    <div class="col col-1 text-right text-secondary">
+                                                        100/100
+                                                    </div>
+                                                    <div class="col col-3 text-center text-secondary">
+                                                        <a class="nostyle" data-toggle="collapse"
+                                                           href="#collapseExample4"
+                                                           role="button" aria-expanded="false"
+                                                           aria-controls="collapseExample">
+                                                            显示 评分反馈
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="grade-output collapse" id="collapseExample4">
+
+                                                    <div class="card rounded-0 mt-2">
+                                                        <div class="card-header">
+                                                            <a class="btn" href="#">lexical.zip</a>
+                                                            <a class="btn float-right" href="#">Download</a>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <p class="card-text"> Anim pariatur cliche reprehenderit,
+                                                                enim
+                                                                eiusmod high life accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea proident.
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life
+                                                                accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea proident.
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life
+                                                                accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea proident.
+                                                                Anim pariatur cliche reprehenderit, enim eiusmod high
+                                                                life
+                                                                accusamus
+                                                                terry richardson ad squid. Nihil anim keffiyeh
+                                                                helvetica,
+                                                                craft beer
+                                                                labore wes anderson cred nesciunt sapiente ea
+                                                                proident.</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="border-top mt-5">
+                            <button type="button" class="btn pl-0">
+                                <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 20 20"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M13.354 3.646a.5.5 0 010 .708L7.707 10l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
+                                Previous
+                            </button>
+                            <button type="button" class="btn pr-0 float-right">
+                                Next
+                                <svg class="bi bi-chevron-right" width="1em" height="1em" viewBox="0 0 20 20"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                                          clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </footer>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+{% endblock %}

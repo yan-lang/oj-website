@@ -1,0 +1,6 @@
+{% autoescape off %}
+Please use the following link to verify your email address for your online judge system account within {{ expiration_days }} days.
+
+http://{{ site }}{% url 'django_registration_activate' activation_key=activation_key  %}
+
+{% endautoescape %}

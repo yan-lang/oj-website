@@ -3,10 +3,9 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.forms import EmailField
 from django.utils.translation import gettext_lazy as _
+from django_registration.forms import RegistrationFormUniqueEmail
 
 from .models import User
-
-from django_registration.forms import RegistrationForm
 
 
 class UserCreationForm(forms.ModelForm):
@@ -96,8 +95,8 @@ class UserChangeForm(forms.ModelForm):
         return self.initial.get('password')
 
 
-class CustomRegistrationForm(RegistrationForm):
-    class Meta(RegistrationForm.Meta):
+class CustomRegistrationForm(RegistrationFormUniqueEmail):
+    class Meta(RegistrationFormUniqueEmail.Meta):
         model = User
         fields = [
             User.USERNAME_FIELD,

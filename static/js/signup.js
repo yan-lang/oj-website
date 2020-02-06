@@ -15,8 +15,8 @@
         });
     }, false);
 
-    const password2 = document.getElementById('password-confirm');
-    const password = document.getElementById('password');
+    const password2 = document.getElementById('id_password2');
+    const password = document.getElementById('id_password1');
     password2.addEventListener("input", function (event) {
         matchPasswords();
     });

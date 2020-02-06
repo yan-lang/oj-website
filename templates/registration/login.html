@@ -18,19 +18,21 @@
 </head>
 <body class="app-account">
 <div class="account-form sign-in-form mx-auto">
-    {% if next %}
-        {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
-        {% else %}
-            <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
 
         <div class="account-form-header">
-            <h1>Sign in to OJ</h1>
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <h1>Permission denied</h1>
+                    <h2>Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.</h2>
+                {% else %}
+                    <h1>Please login to see this page.</h1>
+                {% endif %}
+            {% else %}
+                <h1>Sign in to OJ</h1>
+            {% endif %}
         </div>
 
         {% if form.errors %}

@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import logout
 from django.urls import path, include
@@ -24,7 +26,7 @@ urlpatterns = [
 ]
 
 # Add Django site authetication and registeration urls
-
+# https://django-registration.readthedocs.io/en/3.1/quickstart.html#required-templates
 urlpatterns += [
     path('accounts/register/',
          RegistrationView.as_view(form_class=CustomRegistrationForm),
@@ -47,3 +49,10 @@ from django.views.generic import RedirectView
 urlpatterns += [
     path('', RedirectView.as_view(url='/oj/index', permanent=True)),
 ]
+
+urlpatterns += [
+    path('mdeditor/', include('mdeditor.urls'))
+]
+
+# static files (images, css, javascript, etc.)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

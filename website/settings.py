@@ -55,7 +55,8 @@ INSTALLED_APPS = [
 
     'account',
     'django_registration',
-    'oj'
+    'oj',
+    'mdeditor',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Markdown Support
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

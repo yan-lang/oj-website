@@ -4,11 +4,16 @@
     Dashboard
 {% endblock %}
 
+{% block stylesheet %}
+    {% load static %}
+    <link href={% static "css/dashboard.css" %} rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 
     <div class="container">
-        <div class="row mt-3">
-            <div class="col-lg-10 mx-auto">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
                 <div class="card">
                     <div class="card-header">
                         近期更新

@@ -1,6 +1,40 @@
-/* Move down content because we have a fixed navbar that is 3.5rem tall */
+/* Global */
 body {
-    padding-top: 3.5rem;
+    background-color: #f9f9f9;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #0366d6;
+    border-color: #0366d6;
+}
+
+a {
+    color: #0366d6;
+}
+
+/* Navbar setting*/
+.nav-link {
+    font-weight: 500;
+}
+
+.dropdown-menu {
+    font-size: 1em;
+}
+
+.dropdown-item {
+    padding: 4px 8px 4px 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-item-text {
+    padding: 4px 8px 4px 16px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #fff;
+    background-color: #0366d6;
 }
 
 tr {
@@ -14,6 +48,7 @@ td {
 svg {
     vertical-align: text-bottom
 }
+
 
 .assignment-header {
     margin-bottom: 45px;

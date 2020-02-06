@@ -1,0 +1,28 @@
+.reset-form {
+    max-width: 400px;
+    margin-top: 130px;
+}
+
+.account-form h1 {
+    font-size: 35px;
+}
+
+.reset-done-form {
+    max-width: 500px;
+    margin-top: 200px;
+}
+
+.reset-done-form h2 {
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
+.reset-confirm {
+    max-width: 400px;
+    margin-top: 130px;
+}
+
+.reset-confirm-invalid {
+    max-width: 600px;
+    margin-top: 130px;
+}

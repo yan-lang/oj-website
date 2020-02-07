@@ -75,7 +75,7 @@
                  aria-labelledby="nav-home-tab">
                 <div class='row mt-2'>
                     <div class='col-lg-9'>
-                        <div class="markdown-body">{{ assignment.description | safe}}</div>
+                        <div class="markdown-body">{{ assignment.description | safe }}</div>
                     </div>
                     <div class="col-lg-3">
                         <div class="alert-submit-guide alert alert-secondary" role="alert">
@@ -88,12 +88,12 @@
 
             <div class="assignment-submission tab-pane fade" id="nav-submission" role="tabpanel"
                  aria-labelledby="nav-profile-tab">
-                <div class='row mt-3'>
+                <div class='row pt-3'>
                     <div class="col-md-12">
                         <button type="button" class="btn btn-primary">新建提交</button>
                     </div>
                 </div>
-                <div class='row mt-3'>
+                <div class='row pt-3'>
                     <div class="col-md-12">
                         <h3>你的提交</h3>
                         <div class="grade-history container-fluid mt-4">
@@ -108,174 +108,66 @@
                                     通过了吗？
                                 </div>
                             </div>
-                            <div class="row submission-row">
-                                <button class='col col-8 text-left nostyle grade-expand' type="button"
-                                        data-toggle="collapse" data-target="#collapseExample"
-                                        aria-expanded="false" aria-controls="collapseExample">
-                                    <svg class="bi bi-chevron-right" width="1em" height="1em"
-                                         viewBox="0 0 20 20" fill="currentColor"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                              clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="bi bi-chevron-down" width="1em" height="1em"
-                                         viewBox="0 0 20 20" fill="currentColor"
-                                         xmlns="http://www.w3.org/2000/svg" style="display: none">
-                                        <path fill-rule="evenodd"
-                                              d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
-                                              clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span>September 29, 2018 2:51 AM PDT</span>
-                                </button>
-                                <div class="col col-1 text-right">
-                                    100/100
-                                </div>
-                                <div class="col col-3 text-center">
-                                    是
-                                </div>
-                            </div>
-                            <div class="collapse" id="collapseExample">
-                                <div class="row detail-row">
-                                    <div class="detail-title col col-8 text-left text-secondary">
-                                        词法分析
+                            {% for submission in submissions %}
+                                <div class="row submission-row">
+                                    <button class='col col-8 text-left nostyle grade-expand' type="button"
+                                            data-toggle="collapse" data-target="#collapsesubmission{{ submission.id }}"
+                                            aria-expanded="false" aria-controls="collapseExample">
+                                        <svg class="bi bi-chevron-right" width="1em" height="1em"
+                                             viewBox="0 0 20 20" fill="currentColor"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        <svg class="bi bi-chevron-down" width="1em" height="1em"
+                                             viewBox="0 0 20 20" fill="currentColor"
+                                             xmlns="http://www.w3.org/2000/svg" style="display: none">
+                                            <path fill-rule="evenodd"
+                                                  d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
+                                                  clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>{{ submission.submited_time | date }}</span>
+                                    </button>
+                                    <div class="col col-1 text-right">
+                                        {{ submission.grade }}/{{ submission.total_grade }}
                                     </div>
-                                    <div class="col col-1 text-right text-secondary">
-                                        100/100
-                                    </div>
-                                    <div class="col col-3 text-center text-secondary">
-                                        <a class="nostyle" data-toggle="collapse"
-                                           href="#collapseExample3" role="button" aria-expanded="false"
-                                           aria-controls="collapseExample">
-                                            显示 评分反馈
-                                        </a>
+                                    <div class="col col-3 text-center">
+                                        {{ submission.is_passed }}
                                     </div>
                                 </div>
-                                <div class="grade-output collapse" id="collapseExample3">
-                                    <div class="card rounded-0 mt-2">
-                                        <div class="card-header">
-                                            <a class="btn" href="#">lexical.zip</a>
-                                            <a class="btn float-right" href="#">Download</a>
+                                <div class="collapse" id="collapsesubmission{{ submission.id }}">
+                                    {% for gradeunit in submission.gradeunit_set.all %}
+                                        <div class="row detail-row">
+                                            <div class="detail-title col col-8 text-left text-secondary">
+                                                {{ gradeunit.name }}
+                                            </div>
+                                            <div class="col col-1 text-right text-secondary">
+                                                {{ gradeunit.grade }}/{{ gradeunit.total_grade }}
+                                            </div>
+                                            <div class="col col-3 text-center text-secondary">
+                                                <a class="nostyle" data-toggle="collapse"
+                                                   href="#collapsegradeunit{{ gradeunit.pk }}" role="button"
+                                                   aria-expanded="false"
+                                                   aria-controls="collapseExample">
+                                                    显示 评分反馈
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="card-body">
-                                            <p class="card-text"> Anim pariatur cliche reprehenderit,
-                                                enim
-                                                eiusmod high life accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life
-                                                accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life
-                                                accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life
-                                                accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea
-                                                proident.</p>
+                                        <div class="grade-output collapse" id="collapsegradeunit{{ gradeunit.pk }}">
+                                            <div class="card rounded-0 mt-2">
+                                                <div class="card-header">
+                                                    <a class="btn" href="#">lexical.zip</a>
+                                                    <a class="btn float-right" href="#">Download</a>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-text">{{ gradeunit.grade_report }}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    {% endfor %}
                                 </div>
-                            </div>
-
-                            <div class="row submission-row">
-                                <button class='col col-8 text-left nostyle grade-expand' type="button"
-                                        data-toggle="collapse" data-target="#collapseExample2"
-                                        aria-expanded="false" aria-controls="collapseExample2">
-                                    <svg class="bi bi-chevron-right" width="1em" height="1em"
-                                         viewBox="0 0 20 20" fill="currentColor"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                              clip-rule="evenodd"></path>
-                                    </svg>
-                                    <svg class="bi bi-chevron-down" width="1em" height="1em"
-                                         viewBox="0 0 20 20" fill="currentColor"
-                                         xmlns="http://www.w3.org/2000/svg" style="display: none">
-                                        <path fill-rule="evenodd"
-                                              d="M3.646 6.646a.5.5 0 01.708 0L10 12.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z"
-                                              clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span>September 29, 2018 2:51 AM PDT</span>
-                                </button>
-                                <div class=" col col-1 text-right">100/100</div>
-                                <div class="col col-3 text-center">
-                                    是
-                                </div>
-                            </div>
-                            <div class="collapse" id="collapseExample2">
-                                <div class="row detail-row">
-                                    <div class="detail-title col col-8 text-left text-secondary">
-                                        词法分析
-                                    </div>
-                                    <div class="col col-1 text-right text-secondary">
-                                        100/100
-                                    </div>
-                                    <div class="col col-3 text-center text-secondary">
-                                        <a class="nostyle" data-toggle="collapse"
-                                           href="#collapseExample4"
-                                           role="button" aria-expanded="false"
-                                           aria-controls="collapseExample">
-                                            显示 评分反馈
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="grade-output collapse" id="collapseExample4">
-
-                                    <div class="card rounded-0 mt-2">
-                                        <div class="card-header">
-                                            <a class="btn" href="#">lexical.zip</a>
-                                            <a class="btn float-right" href="#">Download</a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text"> Anim pariatur cliche reprehenderit,
-                                                enim
-                                                eiusmod high life accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life
-                                                accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life
-                                                accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea proident.
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high
-                                                life
-                                                accusamus
-                                                terry richardson ad squid. Nihil anim keffiyeh
-                                                helvetica,
-                                                craft beer
-                                                labore wes anderson cred nesciunt sapiente ea
-                                                proident.</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

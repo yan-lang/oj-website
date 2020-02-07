@@ -1,9 +1,11 @@
+{% load i18n %}
+
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sign in to OJ</title>
+    <title>{% trans "Sign in to OJ" %}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 
@@ -24,20 +26,19 @@
         <div class="account-form-header">
             {% if next %}
                 {% if user.is_authenticated %}
-                    <h1>Permission denied</h1>
-                    <h2>Your account doesn't have access to this page. To proceed,
-                        please login with an account that has access.</h2>
+                    <h1>{% trans "Permission denied" %}</h1>
+                    <h2>{% trans "Your account doesn't have access to this page. To proceed,please login with an account that has access" %}.</h2>
                 {% else %}
-                    <h1>Please login to see this page.</h1>
+                    <h1>{% trans "Please login to see this page" %}.</h1>
                 {% endif %}
             {% else %}
-                <h1>Sign in to OJ</h1>
+                <h1>{% trans "Sign in to OJ" %}</h1>
             {% endif %}
         </div>
 
         {% if form.errors %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Incorrect username or password.
+                {% trans "Incorrect username or password" %}.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -47,26 +48,26 @@
         <div class="account-form-body mt-3">
 
             <div class="form-group">
-                <label for="id_username">Email address</label>
+                <label for="id_username">{% trans "Email address" %}</label>
                 <input type="email" class="form-control" name="username" autofocus="" autocapitalize="none"
                        autocomplete="username" maxlength="254" required="" id="id_username">
             </div>
 
             <div class="form-group">
-                <label for="id_password">Password
-                    <a class="label-link" href="{% url 'password_reset' %}">Forgot password?</a>
+                <label for="id_password">{% trans "Password" %}
+                    <a class="label-link" href="{% url 'password_reset' %}">{% trans "Forgot password?" %}</a>
                 </label>
                 <input type="password" class="form-control" name="password" autocomplete="current-password" required
                        id="id_password">
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            <button type="submit" class="btn btn-primary btn-block">{% trans "Sign in" %}</button>
             <input type="hidden" name="next" value="{{ next }}">
         </div>
 
         <p class="create-account-callout mt-3">
-            New to OJ?
-            <a href="{% url 'django_registration_register' %}">Create an account</a>.
+            {% trans "New to OJ?" %}
+            <a href="{% url 'django_registration_register' %}">{% trans "Create an account" %}</a>.
         </p>
 </div>
 </body>

@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
-from oj.models import Course, Assignment
+from oj.models import Course, Assignment, Submission, GradeUnit
 
 
 def index(request):
@@ -20,7 +20,7 @@ class CourseListview(LoginRequiredMixin, generic.ListView):
         return Course.objects.filter(student=self.request.user)
 
 
-class CourseDetailView(generic.DetailView):
+class CourseDetailView(LoginRequiredMixin, generic.DetailView):
     model = Course
     template_name = 'oj/course/index.html'
     slug_url_kwarg = 'course_identifier'
@@ -35,7 +35,7 @@ class CourseDetailView(generic.DetailView):
         return context
 
 
-class CourseAssignmentView(generic.DetailView):
+class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
     template_name = 'oj/course/course_assignment.html'
 
     def get_queryset(self):
@@ -45,13 +45,22 @@ class CourseAssignmentView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # TODO: get extra user related data, such as submission history
+
+        # Needed for left sidebar
         assignments = Assignment.objects.filter(course=self.course)
         context['assignments'] = assignments
         context['course'] = self.course
+
+        # Rendered assignment description
         self.object.description = markdown.markdown(self.object.description,
                                                     extensions=[
                                                         'markdown.extensions.extra',
                                                         'markdown.extensions.codehilite',  # 代码高亮
                                                         'markdown.extensions.toc'
                                                     ])
+
+        # Submission records
+        submissions = Submission.objects.filter(user=self.request.user).filter(assignment=self.object)
+        context['submissions'] = submissions
+
         return context

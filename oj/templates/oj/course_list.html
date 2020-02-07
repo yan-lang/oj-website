@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block stylesheet %}
+    {{ block.super }}
     {% load static %}
     <link href={% static "css/course_list.css" %} rel="stylesheet">
 {% endblock %}

@@ -1,10 +1,14 @@
+{% load i18n %}
+
+{% trans "Automatic evaluation system" as home_title %}
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %} BIT自动评测系统 {% endblock %}</title>
+    <title>{% block title %} {{ home_title }} {% endblock %}</title>
     {% block stylesheet %}
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -20,7 +24,7 @@
 
 <body class="app">
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">自动评测系统</a>
+    <a class="navbar-brand" href="#">{{ home_title }}</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,12 +36,12 @@
             {% load oj_extras %}
             <li class="nav-item">
                 <a class="nav-link {% if request.path|startswith:'/oj/index' %}active{% endif %} "
-                   href="{% url 'oj:index' %}">Home</a>
+                   href="{% url 'oj:index' %}">{% trans "Home" %}</a>
             </li>
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link {% if request.path|startswith:'/oj/courses/' %}active{% endif %} "
-                       href="{% url 'oj:course_list' %}">Courses</a>
+                       href="{% url 'oj:course_list' %}">{% trans "Courses" %}</a>
                 </li>
             {% endif %}
         </ul>
@@ -53,18 +57,19 @@
                     </svg>
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg-right">
-                    <span class="dropdown-item-text">Signed in as<br><b>{{ user.get_full_name }}</b></span>
+                    <span class="dropdown-item-text">{% trans "Signed in as" %}<br><b>{{ user.get_full_name }}</b></span>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Your profile</a>
+                    <a class="dropdown-item" href="#">{% trans "Your profile" %}</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Help</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="{% url 'logout' %}">Sign out</a>
+                    <a class="dropdown-item" href="#">{% trans "Help" %}</a>
+                    <a class="dropdown-item" href="#">{% trans "Settings" %}</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">{% trans "Sign out" %}</a>
                 </div>
             </div>
         {% else %}
-            <a class="btn btn-outline-secondary mr-2" href="{% url 'django_registration_register' %}">Sign up</a>
-            <a class="btn btn-outline-light" href="{% url 'login' %}">Sign in</a>
+            <a class="btn btn-outline-secondary mr-2"
+               href="{% url 'django_registration_register' %}">{% trans "Sign up" %}</a>
+            <a class="btn btn-outline-light" href="{% url 'login' %}">{% trans "Sign in" %}</a>
         {% endif %}
 
     </div>

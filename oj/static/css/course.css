@@ -1,0 +1,170 @@
+body {
+    background-color: white;
+}
+
+/*
+ *  Sidebar
+ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: #f9f9f9;
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar-header {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.sidebar .nav-link {
+    font-size: 13px;
+    padding: 0;
+}
+
+.sidebar .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Assignment column */
+.col-assignment {
+    padding-top: 100px;
+}
+
+.assignment-header {
+    margin-bottom: 20px;
+}
+
+svg {
+    vertical-align: text-bottom
+}
+
+.assignment-deadline-information tr {
+    vertical-align: top;
+}
+
+.assignment-deadline-information td {
+    padding-right: 20px;
+}
+
+.alert-submit-guide {
+    font-size: 14px;
+}
+
+.grade-history .col-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.grade-history .col-1 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.grade-history .col-3 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.grade-history .row {
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+
+.grade-history > .submission-row:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.grade-history .header {
+    font-weight: 700;
+}
+
+.grade-history .submission-row {
+    color: rgba(0, 0, 0, .87);
+}
+
+.grade-history detail-row {
+    color: red;
+}
+
+.grade-history .col {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.grade-history .detail-title {
+    padding-left: 20px;
+}
+
+button.nostyle {
+    background: transparent none repeat 0 0 scroll;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    min-width: 0;
+}
+
+.output {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .06);
+    font-family: courier, serif;
+    font-size: 12px;
+    line-height: 1.4em;
+    max-height: 250px;
+    overflow: scroll;
+    /* white-space: pre; */
+    padding: 8px;
+    margin-left: 15px;
+}
+
+.grade-output .card-body {
+    background-color: #fff;
+    font-family: courier, serif;
+    font-size: 12px;
+    line-height: 1.4em;
+    max-height: 250px;
+    overflow: scroll;
+    /* white-space: pre; */
+    padding: 15px
+}
+
+.grade-output .card {
+    margin-left: 15px;
+}
+
+.grade-output .card-header a {
+    color: #6c757d;
+    font-size: 10px;
+}
+
+.grade-output .card-header .btn {
+    padding: .2rem 0;
+}
+
+.grade-output .card-header {
+    padding: 0 15px;
+}

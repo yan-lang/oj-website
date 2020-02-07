@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ course.name }}
+{% endblock %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    {% load static %}
+    <link href={% static "css/course.css" %} rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <nav class="col-md-2 d-none d-md-block sidebar">
+        <div class="sidebar-sticky pl-4 pr-4">
+            <div class="sidebar-header mt-3">Assignments</div>
+            <ul class="nav flex-column mt-3">
+                {% for assignment in assignments %}
+                    <li class="nav-item mb-2">
+                        <a class="nav-link"
+                           href={% url "oj:course_assignment" course_identifier=course.identifier pk=assignment.pk %}>
+                            <svg class='mr-1' width="1.2em" height="1.2em" viewBox="0 0 94 82" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g id="页面-1" stroke="none" stroke-width="1" fill="#6a737d" fill-rule="evenodd">
+                                    <g id="desktopcomputer" transform="translate(-2293.000000, -620.000000)">
+                                        <g id="Notes" fill="#FFFFFF" fill-rule="nonzero">
+                                            <rect id="artboard" x="0" y="0" width="3300" height="2200"></rect>
+                                        </g>
+                                        <g id="Guides" transform="translate(263.000000, 625.000000)"
+                                           stroke="#27AAE1" stroke-width="0.577">
+                                            <line x1="0" y1="71" x2="2773" y2="71" id="Baseline-S"></line>
+                                            <line x1="0" y1="0.541" x2="2773" y2="0.541" id="Capline-S"></line>
+                                        </g>
+                                        <g id="Symbols" transform="translate(489.000000, 619.000000)"
+                                           fill="#33383F"
+                                           fill-rule="nonzero">
+                                            <g id="Bold-S" transform="translate(1803.310000, 1.000000)">
+                                                <path d="M13.0215,66.86914 L35.043,66.86914 L34.1641,72.77734 L28.9395,72.77734 C26.5957,72.77734 24.6914,74.73047 24.6914,76.976562 C24.6914,79.22266 26.5957,81.17578 28.9395,81.17578 L66.3906,81.17578 C68.7344,81.17578 70.6387,79.22266 70.6387,76.976562 C70.6387,74.73047 68.7344,72.77734 66.3906,72.77734 L61.166,72.77734 L60.2871,66.86914 L82.3086,66.86914 C90.2188,66.86914 94.564,62.5723 94.564,54.6133 L94.564,12.5234 C94.564,4.5645 90.2188,0.3164 82.3086,0.3164 L13.0215,0.3164 C5.1113,0.3164 0.76562,4.5645 0.76562,12.5234 L0.76562,54.6133 C0.76562,62.5723 5.1113,66.86914 13.0215,66.86914 Z M12.2891,47.6797 C11.3125,47.6797 10.8242,47.2891 10.8242,46.2148 L10.8242,13.5977 C10.8242,11.2539 11.8496,10.375 14.0957,10.375 L81.2344,10.375 C83.4805,10.375 84.5059,11.2539 84.5059,13.5977 L84.5059,46.2148 C84.5059,47.2891 84.0176,47.6797 83.041,47.6797 L12.2891,47.6797 Z M47.6895,63.1582 C45.1992,63.1582 43.1973,61.1562 43.1973,58.666 C43.1973,56.2246 45.1992,54.1738 47.6895,54.1738 C50.1309,54.1738 52.1328,56.2246 52.1328,58.666 C52.1328,61.1562 50.1309,63.1582 47.6895,63.1582 Z"
+                                                      id="形状"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span>{{ assignment.name }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+    <main class='col-md-10 ml-sm-auto p-0' role="main">
+        {% block course_content %}
+
+        {% endblock %}
+    </main>
+{% endblock %}
+

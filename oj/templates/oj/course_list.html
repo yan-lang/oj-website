@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block stylesheet %}
+    {% load static %}
+    <link href={% static "css/course_list.css" %} rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="col-lg-6 mx-auto">
+        {% if course_list %}
+            <div class="course-list">
+                {% for course in course_list %}
+
+                    <div class="card course-card">
+                        <div class="card-header">
+                            近期更新
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.name }}</h5>
+                            <p class="card-text">{{ course.description }}</p>
+                            <a href="{% url "oj:course_detail" course_identifier=course.identifier %}"
+                               class="btn btn-primary">查看详细</a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>You have not register any course yet.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

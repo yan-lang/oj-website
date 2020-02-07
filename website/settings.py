@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'account.User'
 
-LOGIN_REDIRECT_URL = '/oj/dashboard'
+LOGIN_REDIRECT_URL = '/oj/courses'
 LOGOUT_REDIRECT_URL = '/oj/index'
 
 # Email setting

@@ -20,6 +20,7 @@ from django.contrib.auth import logout
 from django.urls import path, include
 from django_registration.backends.activation.views import RegistrationView
 from account.forms import CustomRegistrationForm
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +34,9 @@ urlpatterns += [
          name='django_registration_register',
          ),
     path('accounts/', include('django_registration.backends.activation.urls')),
+]
+
+urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 

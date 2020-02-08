@@ -27,7 +27,7 @@ SECRET_KEY = 'g*2#90iw7(gtgdgzlar3&7iw))pd%=hv2u!o!e)@c5$v-x5s!4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.zeqianglai.cn', '175.24.111.240']
 
 AUTH_USER_MODEL = 'account.User'
 

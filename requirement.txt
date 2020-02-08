@@ -1,0 +1,14 @@
+asgiref==3.2.3
+certifi==2019.11.28
+chardet==3.0.4
+confusable-homoglyphs==3.2.0
+Django==3.0.3
+django-mdeditor==0.1.17
+django-registration==3.1
+idna==2.8
+Markdown==3.1.1
+Pillow==7.0.0
+pytz==2019.3
+requests==2.22.0
+sqlparse==0.3.0
+urllib3==1.25.8

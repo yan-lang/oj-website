@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-08 11:54+0800\n"
+"POT-Creation-Date: 2020-02-08 19:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,8 +168,7 @@ msgstr "你的账号已经激活。"
 
 #: templates/django_registration/activation_complete.html:24
 #: templates/registration/password_reset_complete.html:23
-#, python-format
-msgid "You may go ahead and <a href=\"%(login_url)s\">log in</a>now."
+msgid "You may go ahead and <a href=\"%(login_url)s\">log in</a> now."
 msgstr ""
 "密码重置成功。你现在可以前往登陆页进行<a href=\"%(login_url)s\">登陆</a>."
 

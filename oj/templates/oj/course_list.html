@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-    Dashboard
+    {% trans "Dashboard" %}
 {% endblock %}
 
 {% block stylesheet %}
@@ -25,14 +26,14 @@
                             <h5 class="card-title">{{ course.name }}</h5>
                             <p class="card-text">{{ course.description }}</p>
                             <a href="{% url "oj:course_detail" course_identifier=course.identifier %}"
-                               class="btn btn-primary">查看详细</a>
+                               class="btn btn-primary">{% trans "View Detail" %}</a>
                         </div>
                     </div>
 
                 {% endfor %}
             </div>
         {% else %}
-            <p>You have not register any course yet.</p>
+            <p>{% trans "You have not register any course yet." %}</p>
         {% endif %}
     </div>
 

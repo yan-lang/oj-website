@@ -1,9 +1,10 @@
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Join OJ</title>
+    <title>{% trans "Join OJ" %}</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -22,12 +23,12 @@
         {% csrf_token %}
 
         <div class="account-form-header">
-            <h1>Create your account</h1>
+            <h1>{% trans "Create your account" %}</h1>
         </div>
 
         {% if form.errors.email %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                This email address is already in use. Please supply a different email address.
+                {% trans "This email address is already in use. Please supply a different email address." %}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -36,44 +37,52 @@
 
         <div class="account-form-body mt-3">
             <div class="form-group required">
-                <label for="id_email">Email
-                    address</label>
+                <label for="id_email">{% trans "Email address" %}</label>
                 <input type="email" class="form-control" name="email" maxlength="254" autofocus="" required=""
                        id="id_email">
+                <div class="invalid-feedback">
+                    {% trans "Invalid email address." %}
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 required">
-                    <label for="id_first_name">First name</label>
+                    <label for="id_first_name">{% trans "First name" %}</label>
                     <input type="text" class="form-control" name="first_name" maxlength="30" id="id_first_name"
                            required>
+                    <div class="invalid-feedback">
+                        {% trans "Required field." %}
+                    </div>
                 </div>
                 <div class="form-group col-md-6 required">
-                    <label for="id_last_name">Last name</label>
+                    <label for="id_last_name">{% trans "Last name" %}</label>
                     <input type="text" class="form-control" name="last_name" maxlength="150" id="id_last_name" required>
+                    <div class="invalid-feedback">
+                        {% trans "Required field." %}
+                    </div>
                 </div>
             </div>
             <div class="form-group required">
-                <label for="id_password1">Password</label>
+                <label for="id_password1">{% trans "Password" %}</label>
                 <input type="password" class="form-control" name="password1" autocomplete="new-password" required=""
                        id="id_password1">
                 <div class="invalid-feedback">
-                    Your password must be 8-20 characters long and contain both letters and numbers.
+                    {% trans "Your password must be 8-20 characters long and contain both letters and numbers." %}
                 </div>
             </div>
             <div class="form-group required">
-                <label for="id_password2">Password confirm</label>
+                <label for="id_password2">{% trans "Password confirm" %}</label>
                 <input type="password" class="form-control" name="password2" autocomplete="new-password" required=""
                        id="id_password2">
                 <div class="invalid-feedback">
-                    Password did not match
+                    {% trans "Password did not match." %}
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Create Now</button>
+            <button type="submit" class="btn btn-primary btn-block">{% trans "Create Now" %}</button>
         </div>
     </form>
     <p class="create-account-callout mt-3">
-        Already had an account?
-        <a href={% url "login" %}>Sign in</a>.
+        {% trans "Already had an account?" %}
+        <a href={% url "login" %}>{% trans "Sign in" %}</a>.
     </p>
 </div>
 </body>

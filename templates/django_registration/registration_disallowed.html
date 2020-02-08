@@ -1,9 +1,10 @@
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Registration disallowed</title>
+    <title>{% trans "Registration disallowed" %}</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -17,8 +18,8 @@
 <body class="app-account">
 <div class="account-form reset-done-form mx-auto">
     <div class="account-form-header mx-auto">
-        <h1>Sorry.</h1>
-        <h2>Registration is not allowed for now. Please contact the administrator for more information.
+        <h1>{% trans "Sorry" %}</h1>
+        <h2>{% trans "Registration is not allowed for now. Please contact the administrator for more information." %}
         </h2>
     </div>
 </div>

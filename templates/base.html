@@ -68,14 +68,14 @@
             </div>
         {% else %}
             <a class="btn btn-outline-secondary mr-2"
-               href="{% url 'django_registration_register' %}">{% trans "Sign up" %}</a>
-            <a class="btn btn-outline-light" href="{% url 'login' %}">{% trans "Sign in" %}</a>
+               href="{% url 'login' %}">{% trans "Sign in" %}</a>
+            <a class="btn btn-outline-light" href="{% url 'django_registration_register' %}">{% trans "Sign up" %}</a>
         {% endif %}
 
     </div>
 </nav>
 
-<div class="container-fluid p-0">
+<div class="container-fluid">
     {% block content %}{% endblock %}
 </div>
 

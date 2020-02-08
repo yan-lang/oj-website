@@ -2,6 +2,8 @@
 body {
     background-color: #f9f9f9;
     font-size: 14px;
+    min-height: 75rem;
+    padding-top: 4.5rem;
 }
 
 .btn-primary {
@@ -14,9 +16,6 @@ a {
 }
 
 /* Navbar setting*/
-.navbar {
-
-}
 
 .nav-link {
     font-weight: 500;

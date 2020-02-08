@@ -1,9 +1,10 @@
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Activation failed</title>
+    <title>{% trans "Activation failed" %}</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -17,12 +18,12 @@
 <body class="app-account">
 <div class="account-form reset-done-form mx-auto">
     <div class="account-form-header mx-auto">
-        <h1>Activation failed</h1>
+        <h1>{% trans "Activation failed" %}</h1>
         <h2>
             {% if activation_error.code == 'already_activated' %}
                 {{ activation_error.message }}
             {% elif activation_error.code == 'expired' %}
-                The activation link was expired. Please contact the administrator to activate your account.
+                {% trans "The activation link was expired. Please contact the administrator to activate your account." %}
             {% else %}
                 {{ activation_error.message }}
             {% endif %}

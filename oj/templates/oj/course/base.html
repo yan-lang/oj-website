@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block title %}
     {{ course.name }}
 {% endblock %}
@@ -13,7 +13,7 @@
 {% block content %}
     <nav class="col-md-2 d-none d-md-block sidebar">
         <div class="sidebar-sticky pl-4 pr-4">
-            <div class="sidebar-header mt-3">Assignments</div>
+            <div class="sidebar-header mt-3">{% trans "Assignments" %}</div>
             <ul class="nav flex-column mt-3">
                 {% for assignment in assignments %}
                     <li class="nav-item mb-2">

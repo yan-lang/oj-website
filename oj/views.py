@@ -14,7 +14,7 @@ def index(request):
 class CourseListview(LoginRequiredMixin, generic.ListView):
     model = Course
     paginate_by = 10
-    template_name = "oj/course_list.html"
+    template_name = "oj/course/templates/oj/course_list.html"
 
     def get_queryset(self):
         return Course.objects.filter(student=self.request.user)

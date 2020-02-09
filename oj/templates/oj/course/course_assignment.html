@@ -40,12 +40,14 @@
                 </svg>
                 <span>已通过 · 100/100 分</span>
             </div>
-            <div class="alert alert-primary alert-dismissible fade show mt-2" role="alert">
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+            {% if assignment.alert %}
+                <div class="assignment-alert alert alert-primary alert-dismissible fade show mt-2" role="alert">
+                    {{ assignment.alert | safe }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
         </div>
         <table class='assignment-deadline-information'>
             <tbody>
@@ -53,9 +55,15 @@
                 <td><strong>{% trans "Deadline" %}</strong></td>
                 <td>
                     <div>
-                        作业截止日期为Jan 26, 11:59 PM PST
+                        {% trans "The deadline of this assignment is" %}: {{ assignment.deadline | date:"DATETIME_FORMAT" }}
                     </div>
-                    <div class="caption-text color-text-secondary">您仍可以在课程结束前完成此作业。</div>
+                    <div class="caption-text color-text-secondary">
+                        {% if pass_deadline %}
+                            {% trans "You still have enough time to finish this assignment before the deadline." %}
+                        {% else %}
+                            {% trans "Sorry, you have passed the deadline. Please finish the assignment as quick as possible." %}
+                        {% endif %}
+                    </div>
                 </td>
             </tr>
             </tbody>

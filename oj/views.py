@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.utils import timezone
 
 from oj.models import Course, Assignment, Submission, GradeUnit
 
@@ -58,6 +59,16 @@ class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
                                                         'markdown.extensions.codehilite',  # 代码高亮
                                                         'markdown.extensions.toc'
                                                     ])
+        if self.object.alert:
+            self.object.alert = markdown.markdown(self.object.alert,
+                                                  extensions=[
+                                                      'markdown.extensions.extra',
+                                                      'markdown.extensions.codehilite',  # 代码高亮
+                                                      'markdown.extensions.toc'
+                                                  ])
+
+        # Check if deadline is passed.
+        context['pass_deadline'] = timezone.now() > self.object.deadline
 
         # Submission records
         submissions = Submission.objects.filter(user=self.request.user).filter(assignment=self.object)

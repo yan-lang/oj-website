@@ -15,6 +15,10 @@ svg {
     vertical-align: text-bottom
 }
 
+.assignment-alert p {
+    margin-bottom: 0;
+}
+
 .assignment-deadline-information tr {
     vertical-align: top;
 }

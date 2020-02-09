@@ -2,6 +2,7 @@ from django.db import models
 from mdeditor.fields import MDTextField
 
 from account.models import User
+from django.utils.translation import gettext as _
 
 
 class Course(models.Model):
@@ -32,6 +33,8 @@ class Assignment(models.Model):
                               help_text="Enter a description for your assignment.")
 
     grader = models.FileField(blank=True)
+
+    alert = models.TextField(blank=True, help_text=_("If you have any news to remind students, please enter here."))
 
     # --  Dates --
     create_date = models.DateTimeField(blank=True)

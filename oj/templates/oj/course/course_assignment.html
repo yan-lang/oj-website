@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block course_content %}
-    <div class='col-assignment col-md-10 mx-auto'>
+    <div class='col-assignment'>
         <div class='assignment-header'>
             <h2>{{ assignment.name }}</h2>
             <div class="assignment-header-status">
@@ -113,7 +113,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Close" %}</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">{% trans "Close" %}</button>
                                     <button type="button" class="btn btn-primary">{% trans "Submit" %}</button>
                                 </div>
                             </div>

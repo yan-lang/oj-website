@@ -7,7 +7,7 @@
 {% block stylesheet %}
     {{ block.super }}
     {% load static %}
-    <link href="{% static 'css/markdown.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href={% static 'css/markdown.css' %}>
 {% endblock %}
 
 {% block course_content %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-09 20:33+0800\n"
+"POT-Creation-Date: 2020-02-10 00:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,88 +26,104 @@ msgstr ""
 msgid "Assignments"
 msgstr "作业"
 
-#: oj/templates/oj/course/course_assignment.html:55
+#: oj/templates/oj/course/course_assignment.html:43
+#, fuzzy
+#| msgid "Passed?"
+msgid "Passed"
+msgstr "是否通过？"
+
+#: oj/templates/oj/course/course_assignment.html:43
+#: oj/templates/oj/course/course_assignment.html:68
+#: oj/templates/oj/course/course_assignment.html:190
+msgid "Score"
+msgstr "分数"
+
+#: oj/templates/oj/course/course_assignment.html:68
+msgid "In progress"
+msgstr "进行中"
+
+#: oj/templates/oj/course/course_assignment.html:89
+msgid "It seems that you have not started yet."
+msgstr "您似乎还没开始。"
+
+#: oj/templates/oj/course/course_assignment.html:104
 msgid "Deadline"
 msgstr "截止时间"
 
-#: oj/templates/oj/course/course_assignment.html:59
+#: oj/templates/oj/course/course_assignment.html:107
 msgid "The deadline of this assignment is"
 msgstr "作业截止日期是"
 
-#: oj/templates/oj/course/course_assignment.html:64
+#: oj/templates/oj/course/course_assignment.html:111
 msgid ""
 "You still have enough time to finish this assignment before the deadline."
 msgstr "您仍可以在课程结束前完成此作业。"
 
-#: oj/templates/oj/course/course_assignment.html:66
+#: oj/templates/oj/course/course_assignment.html:113
 msgid ""
 "Sorry, you have passed the deadline. Please finish the assignment as quick "
 "as possible."
 msgstr "对不起，您已经错过了截止日期。请尽快完成作业。"
 
-#: oj/templates/oj/course/course_assignment.html:77
+#: oj/templates/oj/course/course_assignment.html:124
 msgid "Description"
 msgstr "说明"
 
-#: oj/templates/oj/course/course_assignment.html:79
+#: oj/templates/oj/course/course_assignment.html:126
 msgid "Submission"
 msgstr "提交"
 
-#: oj/templates/oj/course/course_assignment.html:92
+#: oj/templates/oj/course/course_assignment.html:139
 msgid "How to submit?"
 msgstr "如何提交"
 
-#: oj/templates/oj/course/course_assignment.html:93
+#: oj/templates/oj/course/course_assignment.html:140
 msgid ""
 "When you are ready, you can submit your solution at the 'My submission' tab."
 msgstr "准备好提交后，您可以在 '我提交的作业' 选项卡上，上传作业每部分的文件。"
 
-#: oj/templates/oj/course/course_assignment.html:104
-#: oj/templates/oj/course/course_assignment.html:113
+#: oj/templates/oj/course/course_assignment.html:151
+#: oj/templates/oj/course/course_assignment.html:160
 msgid "Create submission"
 msgstr "新建提交"
 
-#: oj/templates/oj/course/course_assignment.html:122
+#: oj/templates/oj/course/course_assignment.html:169
 msgid "Choose file"
 msgstr "选择文件"
 
-#: oj/templates/oj/course/course_assignment.html:127
+#: oj/templates/oj/course/course_assignment.html:174
 msgid "Close"
 msgstr "关闭"
 
-#: oj/templates/oj/course/course_assignment.html:128
+#: oj/templates/oj/course/course_assignment.html:175
 msgid "Submit"
 msgstr "提交"
 
-#: oj/templates/oj/course/course_assignment.html:136
+#: oj/templates/oj/course/course_assignment.html:183
 msgid "Your submissions"
 msgstr "你的提交"
 
-#: oj/templates/oj/course/course_assignment.html:140
+#: oj/templates/oj/course/course_assignment.html:187
 msgid "Date"
 msgstr "日期"
 
-#: oj/templates/oj/course/course_assignment.html:143
-msgid "Score"
-msgstr "分数"
-
-#: oj/templates/oj/course/course_assignment.html:146
+#: oj/templates/oj/course/course_assignment.html:193
 msgid "Passed?"
 msgstr "是否通过？"
 
-#: oj/templates/oj/course/course_assignment.html:191
+#: oj/templates/oj/course/course_assignment.html:238
 msgid "Show Grading Report"
 msgstr "显示评分报告"
 
-#: oj/templates/oj/course/course_assignment.html:199
+#: oj/templates/oj/course/course_assignment.html:246
 msgid "Download"
 msgstr "下载"
 
-#: oj/templates/oj/course/course_assignment.html:223
+#: oj/templates/oj/course/course_assignment.html:270
 msgid "Previous"
 msgstr "往前"
 
-#: oj/templates/oj/course/course_assignment.html:226
+#: oj/templates/oj/course/course_assignment.html:273
 msgid "Next"
 msgstr "往后"
 

@@ -11,10 +11,6 @@ body {
     margin-bottom: 20px;
 }
 
-svg {
-    vertical-align: text-bottom
-}
-
 .assignment-alert p {
     margin-bottom: 0;
 }

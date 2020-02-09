@@ -15,7 +15,7 @@ def index(request):
 class CourseListview(LoginRequiredMixin, generic.ListView):
     model = Course
     paginate_by = 10
-    template_name = "oj/course/templates/oj/course_list.html"
+    template_name = "oj/course_list.html"
 
     def get_queryset(self):
         return Course.objects.filter(student=self.request.user)
@@ -73,5 +73,12 @@ class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
         # Submission records
         submissions = Submission.objects.filter(user=self.request.user).filter(assignment=self.object)
         context['submissions'] = submissions
+
+        # Get best score
+        if len(submissions) == 0:
+            best_submission = None
+        else:
+            best_submission = submissions.order_by('grade')[0]
+        context['best_submission'] = best_submission
 
         return context

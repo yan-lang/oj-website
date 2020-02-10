@@ -7,7 +7,15 @@
 {% block stylesheet %}
     {{ block.super }}
     {% load static %}
-    <link  rel="stylesheet" href={% static "css/course.css" %}>
+    <link rel="stylesheet" href={% static "css/course.css" %}>
+{% endblock %}
+
+{% block navbar_front %}
+    <button class="navbar-toggler float-left" type="button"
+            data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav"
+            aria-expanded="false" aria-label="Toggle docs navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 {% endblock %}
 
 {% block content %}

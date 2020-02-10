@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 00:12+0800\n"
+"POT-Creation-Date: 2020-02-10 14:25+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,11 +119,11 @@ msgstr "显示评分报告"
 msgid "Download"
 msgstr "下载"
 
-#: oj/templates/oj/course/course_assignment.html:270
+#: oj/templates/oj/course/course_assignment.html:272
 msgid "Previous"
 msgstr "往前"
 
-#: oj/templates/oj/course/course_assignment.html:273
+#: oj/templates/oj/course/course_assignment.html:279
 msgid "Next"
 msgstr "往后"
 

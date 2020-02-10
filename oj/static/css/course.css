@@ -2,6 +2,10 @@ body {
     background-color: white;
 }
 
+.bd-sidebar {
+    background-color: #f9f9f9;
+}
+
 /* Assignment column */
 .col-assignment {
     padding-top: 20px;

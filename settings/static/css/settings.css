@@ -1,0 +1,33 @@
+.page-content {
+    padding-top: 20px;
+}
+
+.setting-menu .menu-header {
+    background-color: #f3f5f8;
+}
+
+.setting-menu .list-group-item {
+    padding: .55rem 1.25rem;
+}
+
+.setting-menu .list-group-item.active {
+    background-color: #fff;
+    border-color: rgba(0, 0, 0, .125);
+    border-left: 3px solid rgb(86, 61, 124);
+    color: #495057;
+    font-weight: bold;
+}
+
+.sub-header {
+    border-bottom: 1px solid #e1e4e8;
+    margin-bottom: 16px;
+}
+
+.sub-header-spacious {
+    margin-top: 40px;
+}
+
+.sub-header h2 {
+    font-size: 24px;
+    font-weight: 400;
+}

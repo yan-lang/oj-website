@@ -40,6 +40,11 @@ urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
+# Setting
+urlpatterns += [
+    path('settings/', include('settings.urls'))
+]
+
 # Add our application urls
 
 urlpatterns += [

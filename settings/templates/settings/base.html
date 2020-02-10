@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Settings" %}
+{% endblock %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css/settings.css" %}>
+{% endblock %}
+
+{% block content %}
+    <div class="container page-content">
+        <div class="row">
+            <div class="col-md-3 pr-3">
+                <div class="list-group setting-menu" id="list-tab" role="tablist">
+                    <a class="list-group-item menu-header">{% trans "Personal Settings" %}</a>
+                    <a class="list-group-item list-group-item-action {% block menu-profile-class %}{% endblock %}"
+                       href="{% url "settings:user_profile" %}">{% trans "Profile" %}</a>
+                    <a class="list-group-item list-group-item-action {% block menu-account-class %}{% endblock %}"
+                       href="{% url "settings:account" %}">{% trans "Account" %}</a>
+                </div>
+            </div>
+            <div class="col-md-8 mt-4 mt-md-0 mb-5">
+                {% block setting-content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

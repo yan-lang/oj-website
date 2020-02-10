@@ -67,7 +67,7 @@
                     <a class="dropdown-item" href="#">{% trans "Your profile" %}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">{% trans "Help" %}</a>
-                    <a class="dropdown-item" href="#">{% trans "Settings" %}</a>
+                    <a class="dropdown-item" href="{% url "settings:user_profile" %}">{% trans "Settings" %}</a>
                     <a class="dropdown-item" href="{% url 'logout' %}">{% trans "Sign out" %}</a>
                 </div>
             </div>

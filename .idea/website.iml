@@ -28,6 +28,7 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/oj/templates" />
+        <option value="$MODULE_DIR$/settings/templates" />
       </list>
     </option>
   </component>

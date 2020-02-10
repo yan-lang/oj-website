@@ -1,0 +1,63 @@
+{% extends "settings/base.html" %}
+{% load i18n %}
+{% block title %}
+    {% trans "Account" %} | {% trans "Settings" %}
+{% endblock %}
+
+{% block menu-account-class %}
+    active
+{% endblock %}
+
+{% block setting-content %}
+    <div class="sub-header">
+        <h2>{% trans "Associate School" %}</h2>
+    </div>
+    <form>
+         <div class="form-group">
+            <label for="id_school_name">{% trans "Name" %}</label>
+            <input type="text" class="form-control" id="id_school_name"
+                   value="{{ user.student.name }}">
+            <small class="text-muted">
+                {% trans "Please input your real name." %}
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="id_school_stu_id">{% trans "Student ID" %}</label>
+            <input type="text" class="form-control" id="id_school_stu_id"
+                   value="{{ user.student.student_id }}">
+        </div>
+        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+    </form>
+
+    <div class="sub-header sub-header-spacious">
+        <h2>{% trans "Change Password" %}</h2>
+    </div>
+    <form>
+        <div class="form-group required">
+            <label for="id_password0">{% trans "Old password" %}</label>
+            <input type="password" class="form-control" name="password0" autocomplete="old-password" required=""
+                   id="id_password0">
+        </div>
+        <div class="form-group required">
+            <label for="id_password1">{% trans "New password" %}</label>
+            <input type="password" class="form-control" name="password1" autocomplete="new-password" required=""
+                   id="id_password1">
+            <div class="invalid-feedback">
+                {% trans "Your password must be 8-20 characters long and contain both letters and numbers." %}
+            </div>
+        </div>
+        <div class="form-group required">
+            <label for="id_password2">{% trans "Confirm new password" %}</label>
+            <input type="password" class="form-control" name="password2" autocomplete="new-password" required=""
+                   id="id_password2">
+            <div class="invalid-feedback">
+                {% trans "Password did not match." %}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">{% trans "Update Password" %}</button>
+        <small class="text-muted ml-2">
+            <a href="#">{% trans "Forgot password?" %}</a>
+        </small>
+    </form>
+{% endblock %}

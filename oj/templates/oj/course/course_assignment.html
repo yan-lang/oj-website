@@ -218,7 +218,7 @@
                                         {{ submission.grade }}/{{ submission.total_grade }}
                                     </div>
                                     <div class="col col-3 text-center">
-                                        {{ submission.is_passed }}
+                                        {{ submission.is_passed|yesno:"Yes, No" }}
                                     </div>
                                 </div>
                                 <div class="collapse" id="collapsesubmission{{ submission.id }}">

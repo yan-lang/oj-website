@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 14:25+0800\n"
+"POT-Creation-Date: 2020-02-10 18:20+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,69 +17,70 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-#: settings/templates/settings/account.html:4
+
+#: settings/templates/settings/account.html:6
 #: settings/templates/settings/base.html:23
 msgid "Account"
 msgstr "账号"
 
-#: settings/templates/settings/account.html:4
+#: settings/templates/settings/account.html:6
 #: settings/templates/settings/base.html:5
 #: settings/templates/settings/profile.html:4
 msgid "Settings"
 msgstr "设置"
 
-#: settings/templates/settings/account.html:13
+#: settings/templates/settings/account.html:15
 msgid "Associate School"
 msgstr "关联学校"
 
-#: settings/templates/settings/account.html:17
+#: settings/templates/settings/account.html:19
 msgid "Name"
 msgstr "姓名"
 
-#: settings/templates/settings/account.html:21
+#: settings/templates/settings/account.html:23
 msgid "Please input your real name."
 msgstr "请输入你的真实姓名。"
 
-#: settings/templates/settings/account.html:25
+#: settings/templates/settings/account.html:27
 msgid "Student ID"
 msgstr "学号"
 
-#: settings/templates/settings/account.html:29
+#: settings/templates/settings/account.html:31
 #: settings/templates/settings/profile.html:48
 msgid "Save"
 msgstr "保存"
 
-#: settings/templates/settings/account.html:33
+#: settings/templates/settings/account.html:35
 msgid "Change Password"
 msgstr "修改密码"
 
-#: settings/templates/settings/account.html:37
+#: settings/templates/settings/account.html:39
 msgid "Old password"
 msgstr "旧密码"
 
-#: settings/templates/settings/account.html:42
+#: settings/templates/settings/account.html:44
 msgid "New password"
 msgstr "新密码"
 
-#: settings/templates/settings/account.html:46
+#: settings/templates/settings/account.html:48
 msgid ""
 "Your password must be 8-20 characters long and contain both letters and "
 "numbers."
 msgstr ""
 
-#: settings/templates/settings/account.html:50
+#: settings/templates/settings/account.html:52
 msgid "Confirm new password"
 msgstr "确认新密码"
 
-#: settings/templates/settings/account.html:54
+#: settings/templates/settings/account.html:56
 msgid "Password did not match."
 msgstr ""
 
-#: settings/templates/settings/account.html:58
+#: settings/templates/settings/account.html:60
 msgid "Update Password"
 msgstr "更新密码"
 
-#: settings/templates/settings/account.html:60
+#: settings/templates/settings/account.html:62
 msgid "Forgot password?"
 msgstr ""
 

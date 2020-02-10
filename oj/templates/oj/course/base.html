@@ -27,10 +27,10 @@
                     <a class="bd-toc-link" href="#">
                         {% trans "Assignments" %}
                     </a>
-                    {% for assignment in assignments %}
+                    {% for tmp_assignment in assignments %}
                         <ul class="nav bd-sidenav">
-                            <li class="bd-sidenav-active">
-                                <a href="{% url "oj:course_assignment" course_identifier=course.identifier pk=assignment.pk %}">
+                            <li class="{% if assignment == tmp_assignment %}active{% endif %} bd-sidenav-active">
+                                <a href="{% url "oj:course_assignment" course_identifier=course.identifier pk=tmp_assignment.pk %}">
                                     <svg class='mr-1' width="1.2em" height="1.2em" viewBox="0 0 94 82" version="1.1"
                                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="页面-1" stroke="none" stroke-width="1" fill="#6a737d" fill-rule="evenodd">
@@ -46,7 +46,7 @@
                                             </g>
                                         </g>
                                     </svg>
-                                    <span>{{ assignment.name }}</span>
+                                    <span>{{ tmp_assignment.name }}</span>
                                 </a>
                             </li>
                         </ul>

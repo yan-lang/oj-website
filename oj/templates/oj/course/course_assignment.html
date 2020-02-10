@@ -260,24 +260,31 @@
         </div>
 
         <footer class="border-top mt-5">
-            <button type="button" class="btn pl-0">
-                <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 20 20"
-                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                          d="M13.354 3.646a.5.5 0 010 .708L7.707 10l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z"
-                          clip-rule="evenodd"></path>
-                </svg>
-                {% trans "Previous" %}
-            </button>
-            <button type="button" class="btn pr-0 float-right">
-                {% trans "Next" %}
-                <svg class="bi bi-chevron-right" width="1em" height="1em" viewBox="0 0 20 20"
-                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                          d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                          clip-rule="evenodd"></path>
-                </svg>
-            </button>
+            {% if previous_assignment %}
+                <a type="button" class="btn pl-0"
+                   href="{% url "oj:course_assignment" course_identifier=course.identifier pk=previous_assignment.pk %}">
+                    <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 20 20"
+                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M13.354 3.646a.5.5 0 010 .708L7.707 10l5.647 5.646a.5.5 0 01-.708.708l-6-6a.5.5 0 010-.708l6-6a.5.5 0 01.708 0z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                    {% trans "Previous" %}
+                </a>
+            {% endif %}
+
+            {% if next_assignment %}
+                <a type="button" class="btn pr-0 float-right"
+                   href="{% url "oj:course_assignment" course_identifier=course.identifier pk=next_assignment.pk %}">
+                    {% trans "Next" %}
+                    <svg class="bi bi-chevron-right" width="1em" height="1em" viewBox="0 0 20 20"
+                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
+                              clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            {% endif %}
         </footer>
     </div>
 {% endblock %}

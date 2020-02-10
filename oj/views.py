@@ -48,9 +48,15 @@ class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
         # TODO: get extra user related data, such as submission history
 
         # Needed for left sidebar
-        assignments = Assignment.objects.filter(course=self.course)
+        assignments = Assignment.objects.filter(course=self.course).order_by('id')
         context['assignments'] = assignments
         context['course'] = self.course
+
+        # Previous, Next
+        previous_assignment = assignments.filter(id__lte=self.object.id).exclude(id=self.object.id).order_by('id')
+        next_assignment = assignments.filter(id__gte=self.object.id).exclude(id=self.object.id).order_by('id')
+        context['previous_assignment'] = previous_assignment.last()
+        context['next_assignment'] = next_assignment.first()
 
         # Rendered assignment description
         self.object.description = markdown.markdown(self.object.description,

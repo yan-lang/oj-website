@@ -78,7 +78,7 @@ API_DESCRIPTION = 'A Web API for evaluating programming assignments.'
 schema_view = get_schema_view(title=API_TITLE)
 
 urlpatterns += [
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('api/auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/schema/', schema_view),
     path('api/docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION))
 ]

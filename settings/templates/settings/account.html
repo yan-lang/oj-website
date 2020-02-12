@@ -14,10 +14,10 @@
     <div class="sub-header">
         <h2>{% trans "Associate School" %}</h2>
     </div>
-    <form>
+    <form onsubmit="associateSchool(); return false">
         <div class="form-group">
-            <label for="id_school_name">{% trans "Name" %}</label>
-            <input type="text" class="form-control" id="id_school_name"
+            <label for="id_real_user_name">{% trans "Name" %}</label>
+            <input type="text" class="form-control" id="id_real_user_name"
                    value="{{ user.student.name }}">
             <small class="text-muted">
                 {% trans "Please input your real name." %}
@@ -34,6 +34,7 @@
     <div class="sub-header sub-header-spacious">
         <h2>{% trans "Change Password" %}</h2>
     </div>
+
     <form class="needs-validation" novalidate>
         <div class="form-group required">
             <label for="id_password0">{% trans "Old password" %}</label>
@@ -67,4 +68,7 @@
 {% block scripts %}
     {{ block.super }}
     <script src="{% static "js/signup.js" %}"></script>
+    <script src={% static "rest_framework/js/coreapi-0.1.1.js" %}></script>
+    <script src="{% url 'api-docs:schema-js' %}"></script>
+    <script src={% static "settings/js/account.js" %}></script>
 {% endblock %}

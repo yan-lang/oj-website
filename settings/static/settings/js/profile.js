@@ -16,7 +16,6 @@ function updateUserInfo() {
         first_name: first_name.value,
         last_name: last_name.value,
     };
-    console.log("Patch user info");
     client.action(schema, action, params).then(function (result) {
         // Return value is in 'result'
         alert("Successfully updated")

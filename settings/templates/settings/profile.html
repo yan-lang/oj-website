@@ -1,5 +1,6 @@
 {% extends "settings/base.html" %}
 {% load i18n %}
+{% load static %}
 {% block title %}
     {% trans "Profile" %} | {% trans "Settings" %}
 {% endblock %}
@@ -12,7 +13,9 @@
     <div class="sub-header">
         <h2>{% trans "Public Profile" %}</h2>
     </div>
-    <form>
+    <form onsubmit="updateUserInfo(); return false">
+        <input id='id_id' value='{{ user.id }}' type='hidden'/>
+
         <div class="form-row">
             <div class="form-group col-md-6 required">
                 <label for="id_first_name">{% trans "First name" %}</label>
@@ -37,8 +40,8 @@
         </div>
 
         <div class="form-group">
-            <label for="exampleFormControlInput1">{% trans "Email address" %}</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1"
+            <label for="id_email">{% trans "Email address" %}</label>
+            <input type="email" class="form-control" id="id_email"
                    value="{{ user.email }}" disabled>
             <small class="text-muted">
                 {% trans "If you want to change you email adress." %} <a href="#">{% trans "Click here." %}</a>
@@ -47,4 +50,11 @@
 
         <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
     </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src={% static "rest_framework/js/coreapi-0.1.1.js" %}></script>
+    <script src="{% url 'api-docs:schema-js' %}"></script>
+    <script src={% static "settings/js/profile.js" %}></script>
 {% endblock %}

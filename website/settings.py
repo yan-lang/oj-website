@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'oj',
     'mdeditor',
     'settings',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +153,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Django REST Framework
+REST_FRAMEWORK = {
+    'PAGE_SIZE': 10,
+    'DEFAULT_PAGINATION_CLASS':
+        'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+}

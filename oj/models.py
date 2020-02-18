@@ -6,20 +6,20 @@ from django.utils.translation import gettext as _
 
 
 class Course(models.Model):
-    identifier = models.SlugField(max_length=100, help_text="Will be used in course home page url", unique=True)
+    identifier = models.SlugField(max_length=100, help_text=_("Will be used in course home page url"), unique=True)
 
     name = models.CharField(max_length=200,
-                            help_text="Enter a course name (e.g. Math, Chinese).")
+                            help_text=_("Enter a course name (e.g. Math, Chinese)."))
 
     description = models.TextField(blank=True,
-                                   help_text="Enter a description for your course.")
+                                   help_text=_("Enter a description for your course."))
 
     # --  Dates --
     create_date = models.DateTimeField(blank=True)
     update_date = models.DateTimeField(blank=True)
 
     # -- Foreign key --
-    student = models.ManyToManyField(User, through="Registeration")
+    student = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
@@ -57,19 +57,6 @@ class Student(models.Model):
 
     def __str__(self):
         return "Student " + self.user.__str__()
-
-
-class Registeration(models.Model):
-    student = models.ForeignKey(User, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-
-    # --  Dates --
-    register_date = models.DateTimeField(blank=True)
-
-    def __str__(self):
-        return "{0}: {1} - {2}".format(self.course.name,
-                                       self.student.get_full_name(),
-                                       self.register_date.__str__())
 
 
 class Submission(models.Model):

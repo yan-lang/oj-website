@@ -6,8 +6,8 @@
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
 .bd-navbar {
-    /*background-color: #563d7c;*/
-    background-color: #112E51;
+    background-color: #563d7c;
+    /*background-color: #112E51;*/
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .05), inset 0 -1px 0 rgba(0, 0, 0, .1)
 }
 
@@ -46,8 +46,8 @@
 .bd-navbar .navbar-nav .nav-link {
     padding-right: .5rem;
     padding-left: .5rem;
-    /*color: #cbbde2*/
-    color: #b9b9b9;
+    color: #cbbde2
+    /*color: #b9b9b9;*/
 }
 
 .bd-navbar .navbar-nav .nav-link.active,

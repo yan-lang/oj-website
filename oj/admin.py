@@ -5,9 +5,12 @@ from django.utils.translation import gettext, gettext_lazy as _
 
 
 class AssignmentAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': MDEditorWidget}
-    }
+    fieldsets = (
+        (None, {"fields": ('name', 'create_date', 'deadline', 'course', 'alert')}),
+        (_('Description'), {'fields': ('description',),
+                            'classes': ('collapse',)}),
+        (_('Auto grader'), {'fields': ('grader',)})
+    )
 
 
 class CourseAdmin(admin.ModelAdmin):

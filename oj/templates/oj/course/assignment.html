@@ -1,0 +1,101 @@
+{% extends "oj/course/base.html" %}
+{% load i18n %}
+{% block title %}
+    {{ assignment.name }}・{{ course.name }}
+{% endblock %}
+
+{% block stylesheet %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/markdown.css' %}>
+{% endblock %}
+
+{% block course_content %}
+    <div class='col-assignment'>
+        <div class='assignment-header'>
+            <h2>{{ assignment.name }}</h2>
+            <div class="assignment-header-status">
+                {% if best_submission %}
+                    {% if best_submission.grade == best_submission.total_grade %}
+                        {% include "oj/course/svg/passed.html" %}
+                        <span>{% trans "Passed" %} · {{ best_submission.grade }}/{{ best_submission.total_grade }}{% trans "Score" %}</span>
+                    {% else %}
+                        {% include "oj/course/svg/inprogress.html" %}
+                        <span>{% trans "In progress" %} · {{ best_submission.grade }}/{{ best_submission.total_grade }}{% trans "Score" %}</span>
+                    {% endif %}
+                {% else %}
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    {% include "oj/course/svg/notstart.html" %}
+                    <span>{% trans "It seems that you have not started yet." %}</span>
+                {% endif %}
+            </div>
+            {% if assignment.alert %}
+                <div class="assignment-alert alert alert-primary alert-dismissible fade show mt-2" role="alert">
+                    {{ assignment.alert | safe }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+
+        <table class='assignment-deadline-information'>
+            <tbody>
+            <tr>
+                <td><strong>{% trans "Deadline" %}</strong></td>
+                <td>
+                    <div>
+                        {% trans "The deadline of this assignment is" %}: {{ assignment.deadline | date:"DATETIME_FORMAT" }}
+                    </div>
+                    <div class="caption-text color-text-secondary">
+                        {% if not pass_deadline %}
+                            {% trans "You still have enough time to finish this assignment before the deadline." %}
+                        {% else %}
+                            {% trans "Sorry, you have passed the deadline. Please finish the assignment as quick as possible." %}
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <nav class="mt-3">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-description"
+                   role="tab" aria-controls="nav-home" aria-selected="true">{% trans "Description" %}</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-submission"
+                   role="tab" aria-controls="nav-profile" aria-selected="false">{% trans "Submission" %}</a>
+            </div>
+        </nav>
+
+        <div class="tab-content" id="nav-tabContent">
+            <div class="assignment-description tab-pane fade show active" id="nav-description" role="tabpanel"
+                 aria-labelledby="nav-home-tab">
+                {% include "oj/course/component/assignment/description.html" %}
+            </div>
+
+            <div class="assignment-submission tab-pane fade" id="nav-submission" role="tabpanel"
+                 aria-labelledby="nav-profile-tab">
+                {% include "oj/course/component/assignment/submissions.html" %}
+            </div>
+        </div>
+
+        <footer class="border-top mt-5">
+            {% if previous_assignment %}
+                <a type="button" class="btn pl-0"
+                   href="{% url "oj:course_assignment" course_identifier=course.identifier pk=previous_assignment.pk %}">
+                    {% include "oj/course/svg/larrow.html" %}
+                    {% trans "Previous" %}
+                </a>
+            {% endif %}
+
+            {% if next_assignment %}
+                <a type="button" class="btn pr-0 float-right"
+                   href="{% url "oj:course_assignment" course_identifier=course.identifier pk=next_assignment.pk %}">
+                    {% trans "Next" %}
+                   {% include "oj/course/svg/rarrow.html" %}
+                </a>
+            {% endif %}
+        </footer>
+    </div>
+{% endblock %}

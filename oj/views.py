@@ -37,7 +37,7 @@ class CourseDetailView(LoginRequiredMixin, generic.DetailView):
 
 
 class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
-    template_name = 'oj/course/course_assignment.html'
+    template_name = 'oj/course/assignment.html'
 
     def get_queryset(self):
         self.course = get_object_or_404(Course, identifier=self.kwargs['course_identifier'])

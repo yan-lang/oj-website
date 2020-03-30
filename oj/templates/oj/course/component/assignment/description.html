@@ -1,0 +1,17 @@
+{% load i18n %}
+<div class='row mt-2'>
+    <div class='col-lg-9'>
+        {% if assignment.description %}
+            <div class="markdown-body">{{ assignment.description | safe }}</div>
+        {% else %}
+            <div>{% trans "The publisher did not provide any description." %}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-lg-3 mt-4 mt-lg-0">
+        <div class="alert-submit-guide alert alert-secondary" role="alert">
+            <h4>{% trans "How to submit?" %}</h4>
+            <p>{% trans "When you are ready, you can submit your solution at the 'My submission' tab." %}</p>
+        </div>
+    </div>
+</div>

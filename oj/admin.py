@@ -28,8 +28,32 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ('name', 'create_date', 'update_date')
 
 
+class GradeUnitInline(admin.StackedInline):
+    model = GradeUnit
+    classes = ['collapse']
+    extra = 0
+
+
+class GradeReportAdmin(admin.ModelAdmin):
+    model = GradeReport
+    inlines = [GradeUnitInline]
+
+    list_display = ('submission', 'grade', 'total_grade', 'is_passed')
+
+
+class GradeReportInline(admin.StackedInline):
+    model = GradeReport
+
+
+class SubmissionAdmin(admin.ModelAdmin):
+    inlines = [GradeReportInline]
+
+    list_display = ('submitted_time', 'assignment', 'user')
+
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Assignment, AssignmentAdmin)
 admin.site.register(Student)
-admin.site.register(Submission)
+admin.site.register(Submission, SubmissionAdmin)
+admin.site.register(GradeReport, GradeReportAdmin)
 admin.site.register(GradeUnit)

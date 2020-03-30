@@ -63,6 +63,20 @@ class Submission(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     assignment = models.ForeignKey(Assignment, on_delete=models.SET_NULL, null=True)
 
+    submitted_time = models.DateTimeField()
+
+    # TODO: validate file size
+    # Useful links (perhaps):
+    # https://www.djangosnippets.org/snippets/1303/
+    submitted_file = models.FileField(blank=True)
+
+    def __str__(self):
+        return self.assignment.__str__() + ": " + self.submitted_time.__str__()
+
+
+class GradeReport(models.Model):
+    submission = models.OneToOneField(Submission, on_delete=models.CASCADE)
+
     # Sometimes, it might be ok to be passed even if the grade is 100%
     is_passed = models.BooleanField()
 
@@ -71,19 +85,12 @@ class Submission(models.Model):
     grade = models.IntegerField()
     total_grade = models.IntegerField(default=100)
 
-    submited_time = models.DateTimeField()
-
-    # TODO: validate file size
-    # Useful links (perhaps):
-    # https://www.djangosnippets.org/snippets/1303/
-    submited_file = models.FileField(blank=True)
-
     def __str__(self):
-        return self.assignment.__str__() + ": " + self.submited_time.__str__()
+        return "{0} - {1}/{2}".format(self.submission, self.grade, self.total_grade)
 
 
 class GradeUnit(models.Model):
-    submission = models.ForeignKey(Submission, on_delete=models.SET_NULL, null=True)
+    submission = models.ForeignKey(GradeReport, on_delete=models.SET_NULL, null=True)
 
     name = models.CharField(max_length=200)
 
@@ -94,4 +101,4 @@ class GradeUnit(models.Model):
     grade_report = models.TextField(blank=True)
 
     def __str__(self):
-        return self.name
+        return "{0} - {1}/{2}".format(self.name, self.grade, self.total_grade)

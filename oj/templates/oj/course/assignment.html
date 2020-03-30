@@ -15,13 +15,13 @@
         <div class='assignment-header'>
             <h2>{{ assignment.name }}</h2>
             <div class="assignment-header-status">
-                {% if best_submission %}
-                    {% if best_submission.grade == best_submission.total_grade %}
+                {% if best_submission.gradereport %}
+                    {% if best_submission.gradereport.grade == best_submission.gradereport.total_grade %}
                         {% include "oj/course/svg/passed.html" %}
-                        <span>{% trans "Passed" %} · {{ best_submission.grade }}/{{ best_submission.total_grade }}{% trans "Score" %}</span>
+                        <span>{% trans "Passed" %} · {{ best_submission.gradereport.grade }}/{{ best_submission.gradereport.total_grade }}{% trans "Score" %}</span>
                     {% else %}
                         {% include "oj/course/svg/inprogress.html" %}
-                        <span>{% trans "In progress" %} · {{ best_submission.grade }}/{{ best_submission.total_grade }}{% trans "Score" %}</span>
+                        <span>{% trans "In progress" %} · {{ best_submission.gradereport.grade }}/{{ best_submission.gradereport.total_grade }}{% trans "Score" %}</span>
                     {% endif %}
                 {% else %}
                     <?xml version="1.0" encoding="UTF-8"?>

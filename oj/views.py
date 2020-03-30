@@ -65,13 +65,6 @@ class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
                                                         'markdown.extensions.codehilite',  # 代码高亮
                                                         'markdown.extensions.toc'
                                                     ])
-        if self.object.alert:
-            self.object.alert = markdown.markdown(self.object.alert,
-                                                  extensions=[
-                                                      'markdown.extensions.extra',
-                                                      'markdown.extensions.codehilite',  # 代码高亮
-                                                      'markdown.extensions.toc'
-                                                  ])
 
         # Check if deadline is passed.
         context['pass_deadline'] = timezone.now() > self.object.deadline

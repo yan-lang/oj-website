@@ -74,7 +74,7 @@ class Submission(models.Model):
     submited_time = models.DateTimeField()
 
     # TODO: validate file size
-    # Userful links (perhaps):
+    # Useful links (perhaps):
     # https://www.djangosnippets.org/snippets/1303/
     submited_file = models.FileField(blank=True)
 
@@ -90,7 +90,7 @@ class GradeUnit(models.Model):
     grade = models.IntegerField()
     total_grade = models.IntegerField(default=100)
 
-    # Detailed grade report produeced by grader.
+    # Detailed grade report produced by grader.
     grade_report = models.TextField(blank=True)
 
     def __str__(self):

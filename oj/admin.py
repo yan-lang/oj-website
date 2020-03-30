@@ -1,7 +1,7 @@
 from django.contrib import admin
-from mdeditor.widgets import MDEditorWidget
+from django.utils.translation import gettext_lazy as _
+
 from oj.models import *
-from django.utils.translation import gettext, gettext_lazy as _
 
 
 class AssignmentAdmin(admin.ModelAdmin):
@@ -11,6 +11,8 @@ class AssignmentAdmin(admin.ModelAdmin):
                             'classes': ('collapse',)}),
         (_('Auto grader'), {'fields': ('grader',)})
     )
+
+    list_display = ('name', 'course', 'create_date', 'deadline')
 
 
 class CourseAdmin(admin.ModelAdmin):

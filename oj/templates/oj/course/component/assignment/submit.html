@@ -19,20 +19,17 @@
             {% endfor %}
         </div>
 
-        <div class="form-group">
-            {#            <label for="{{ form.submitted_file.id_for_label }}">{{ form.submitted_file.label }}</label>#}
-
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="id_submitted_file" name="submitted_file">
-                <label class="custom-file-label" for="id_submitted_file">{% trans "Choose file"%}</label>
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {% render_field field class="form-control" placeholder=field.label %}
+                <div class="{% if field.errors %} invalid{% endif %}">
+                    {% for error in field.errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                </div>
             </div>
-
-            <div class="{% if form.submitted_file.errors %} invalid{% endif %}">
-                {% for error in form.submitted_file.errors %}
-                    <p class="help-block">{{ error }}</p>
-                {% endfor %}
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <div class="modal-footer">

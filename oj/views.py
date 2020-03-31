@@ -73,10 +73,11 @@ class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
         context['submissions'] = submissions
 
         # Get best score
-        if len(submissions) == 0:
+        graded_submissions = submissions.filter(gradereport__isnull=False)
+        if len(graded_submissions) == 0:
             best_submission = None
         else:
-            best_submission = submissions.filter(gradereport__isnull=False).order_by('gradereport__grade')[0]
+            best_submission = graded_submissions.order_by('gradereport__grade')[0]
         context['best_submission'] = best_submission
 
         return context

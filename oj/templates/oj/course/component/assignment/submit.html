@@ -1,28 +1,43 @@
+{% load widget_tweaks %}
+{% load i18n %}
+
 <form method="post" action="" enctype="multipart/form-data">
     {% csrf_token %}
 
     <div class="modal-header">
-        <h5 class="modal-title">Create Submission</h5>
+        <h5 class="modal-title">{% trans "Create Submission" %}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 
     <div class="modal-body">
-        {% for field in form %}
-            <div class="form-group{% if field.errors %} invalid{% endif %}">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-                {% for error in field.errors %}
+
+        <div class="{% if form.non_field_errors %}invalid{% endif %} mb-2">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+
+        <div class="form-group">
+            {#            <label for="{{ form.submitted_file.id_for_label }}">{{ form.submitted_file.label }}</label>#}
+
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="id_submitted_file" name="submitted_file">
+                <label class="custom-file-label" for="id_submitted_file">{% trans "Choose file"%}</label>
+            </div>
+
+            <div class="{% if form.submitted_file.errors %} invalid{% endif %}">
+                {% for error in form.submitted_file.errors %}
                     <p class="help-block">{{ error }}</p>
                 {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="submit-btn btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+        <button type="button" class="submit-btn btn btn-primary">{% trans "Submit" %}</button>
     </div>
 
 </form>

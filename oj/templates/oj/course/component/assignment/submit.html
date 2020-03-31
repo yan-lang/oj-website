@@ -1,24 +1,28 @@
-{% load i18n %}
-<div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title"
-                id="staticBackdropLabel">{% trans "Create submission" %}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label"
-                       for="customFile">{% trans "Choose file" %}</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary"
-                    data-dismiss="modal">{% trans "Close" %}</button>
-            <button type="button" class="btn btn-primary">{% trans "Submit" %}</button>
-        </div>
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="modal-header">
+        <h5 class="modal-title">Create Submission</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-</div>
+
+    <div class="modal-body">
+        {% for field in form %}
+            <div class="form-group{% if field.errors %} invalid{% endif %}">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% for error in field.errors %}
+                    <p class="help-block">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="submit-btn btn btn-primary">Submit</button>
+    </div>
+
+</form>

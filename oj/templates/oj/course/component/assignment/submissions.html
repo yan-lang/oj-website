@@ -1,15 +1,21 @@
 {% load i18n %}
+{% load static %}
+
 <div class='row pt-3'>
     <div class="col-md-12">
-        <button type="button" class="btn btn-primary" data-toggle="modal"
-                data-target="#staticBackdrop">{% trans "Create submission" %}</button>
+        <button type="button" class="btn btn-primary create-submission" data-id="{% url 'oj:create_submission' assignment.pk %}">{% trans "Create submission" %}</button>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        {% include "oj/course/component/assignment/submit.html" %}
+    <div class="modal fade" tabindex="-1" role="dialog" id="submit_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+            </div>
+        </div>
     </div>
+
 </div>
+
 <div class='row pt-3'>
     <div class="col-md-12">
         <h3>{% trans "Your submissions" %}</h3>

@@ -93,9 +93,21 @@
                 <a type="button" class="btn pr-0 float-right"
                    href="{% url "oj:course_assignment" course_identifier=course.identifier pk=next_assignment.pk %}">
                     {% trans "Next" %}
-                   {% include "oj/course/svg/rarrow.html" %}
+                    {% include "oj/course/svg/rarrow.html" %}
                 </a>
             {% endif %}
         </footer>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".create-submission").each(function () {
+                $(this).modalForm({formURL: $(this).data('id'), modalID: "#submit_modal"});
+            });
+        });
+    </script>
 {% endblock %}

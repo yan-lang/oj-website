@@ -4,6 +4,8 @@ from mdeditor.fields import MDTextField
 from account.models import User
 from django.utils.translation import gettext as _
 
+from website import settings
+
 
 class Course(models.Model):
     identifier = models.SlugField(max_length=100, help_text=_("Will be used in course home page url"), unique=True)
@@ -59,16 +61,21 @@ class Student(models.Model):
         return "Student " + self.user.__str__()
 
 
+def submission_file_path(instance, filename):
+    return '%s/protected/%s/%s/%s' % (settings.MEDIA_ROOT, instance.user.pk,
+                                      instance.assignment.pk, filename)
+
+
 class Submission(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     assignment = models.ForeignKey(Assignment, on_delete=models.SET_NULL, null=True)
 
-    submitted_time = models.DateTimeField()
+    submitted_time = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     # TODO: validate file size
     # Useful links (perhaps):
     # https://www.djangosnippets.org/snippets/1303/
-    submitted_file = models.FileField(blank=True)
+    submitted_file = models.FileField(blank=True, upload_to=submission_file_path, max_length=300)
 
     def __str__(self):
         return self.assignment.__str__() + ": " + self.submitted_time.__str__()

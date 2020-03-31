@@ -13,4 +13,5 @@ urlpatterns += [
     path('courses/<slug:course_identifier>/', views.CourseDetailView.as_view(), name='course_detail'),
     path('courses/<slug:course_identifier>/assignments/<int:pk>/', views.CourseAssignmentView.as_view(),
          name='course_assignment'),
+    path('submit/<int:assignment_pk>', views.SubmissionCreateView.as_view(), name='create_submission'),
 ]

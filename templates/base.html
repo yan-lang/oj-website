@@ -21,6 +21,23 @@
 </head>
 
 <body>
+<!-- Messages -->
+<div>
+    {% if messages %}
+        {% for message in messages %}
+            <div style="border-radius:0;" {% if message.tags %}
+                 class="alert alert-icon alert-{{ message.tags }} alert-dismissible fade show mb-0"
+                 role="alert" {% endif %}>
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<!-- End Messages -->
+
 <nav class="navbar navbar-expand-md navbar-dark flex-md-row bd-navbar">
     {% block navbar_front %}
     {% endblock %}
@@ -84,8 +101,9 @@
 
 {% block scripts %}
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src={% static "js/jquery-3.4.1.slim.min.js" %}></script>
+    <script src={% static "js/jquery-3.2.1.min.js" %}></script>
     <script src={% static "js/popper.min.js" %}></script>
     <script src={% static "bootstrap/js/bootstrap.min.js" %}></script>
+
 {% endblock %}
 </body>

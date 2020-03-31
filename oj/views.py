@@ -1,11 +1,10 @@
 import markdown
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
-from django.views import generic
 from django.utils import timezone
+from django.views import generic
 
-from oj.models import Course, Assignment, Submission, GradeUnit
+from oj.models import Course, Assignment
 
 
 def index(request):
@@ -81,3 +80,23 @@ class CourseAssignmentView(LoginRequiredMixin, generic.DetailView):
         context['best_submission'] = best_submission
 
         return context
+
+
+from .forms import SubmissionForm
+from .models import Submission
+from bootstrap_modal_forms.generic import BSModalCreateView
+
+
+class SubmissionCreateView(LoginRequiredMixin, BSModalCreateView):
+    template_name = 'oj/course/component/assignment/submit.html'
+    form_class = SubmissionForm
+    success_message = 'Success: Submission was created.'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.assignment = get_object_or_404(Assignment,
+                                                     id=self.kwargs.get('assignment_pk'))  # new line
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.request.META.get('HTTP_REFERER')

@@ -48,7 +48,7 @@ urlpatterns += [
 ]
 
 # static files (images, css, javascript, etc.)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL + 'editor/', document_root=settings.MEDIA_ROOT + 'editor/')
 
 """
 Restful API

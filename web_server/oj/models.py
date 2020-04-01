@@ -67,6 +67,16 @@ def submission_file_path(instance, filename):
 
 
 class Submission(models.Model):
+    SUBMITTED = 0
+    GRADING = 1
+    GRADED = 2
+
+    STATUS_CHOICES = [
+        (SUBMITTED, "Submitted"),
+        (GRADING, "Grading"),
+        (GRADED, "Graded")
+    ]
+
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     assignment = models.ForeignKey(Assignment, on_delete=models.SET_NULL, null=True)
 
@@ -76,6 +86,10 @@ class Submission(models.Model):
     # Useful links (perhaps):
     # https://www.djangosnippets.org/snippets/1303/
     submitted_file = models.FileField(blank=True, upload_to=submission_file_path, max_length=300)
+
+    status = models.SmallIntegerField(default=SUBMITTED, choices=STATUS_CHOICES)
+
+    last_grade_time = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return self.assignment.__str__() + ": " + self.submitted_time.__str__()
@@ -97,7 +111,7 @@ class GradeReport(models.Model):
 
 
 class GradeUnit(models.Model):
-    submission = models.ForeignKey(GradeReport, on_delete=models.SET_NULL, null=True)
+    report = models.ForeignKey(GradeReport, on_delete=models.SET_NULL, null=True)
 
     name = models.CharField(max_length=200)
 
@@ -105,7 +119,7 @@ class GradeUnit(models.Model):
     total_grade = models.IntegerField(default=100)
 
     # Detailed grade report produced by grader.
-    grade_report = models.TextField(blank=True)
+    detail = models.TextField(blank=True)
 
     def __str__(self):
         return "{0} - {1}/{2}".format(self.name, self.grade, self.total_grade)

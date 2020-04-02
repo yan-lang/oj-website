@@ -55,7 +55,7 @@ msgstr "如果你有什么信息想提醒学生的，请在这里输入。"
 
 #: oj/templates/oj/course/assignment.html:21
 msgid "Passed"
-msgstr "是否通过？"
+msgstr "通过"
 
 #: oj/templates/oj/course/assignment.html:21
 #: oj/templates/oj/course/assignment.html:24

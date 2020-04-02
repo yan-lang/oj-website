@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 18:20+0800\n"
+"POT-Creation-Date: 2020-04-02 21:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr "账号"
 
 #: settings/templates/settings/account.html:6
 #: settings/templates/settings/base.html:5
-#: settings/templates/settings/profile.html:4
+#: settings/templates/settings/profile.html:5
 msgid "Settings"
 msgstr "设置"
 
@@ -46,7 +46,7 @@ msgid "Student ID"
 msgstr "学号"
 
 #: settings/templates/settings/account.html:31
-#: settings/templates/settings/profile.html:48
+#: settings/templates/settings/profile.html:51
 msgid "Save"
 msgstr "保存"
 
@@ -54,33 +54,33 @@ msgstr "保存"
 msgid "Change Password"
 msgstr "修改密码"
 
-#: settings/templates/settings/account.html:39
+#: settings/templates/settings/account.html:40
 msgid "Old password"
 msgstr "旧密码"
 
-#: settings/templates/settings/account.html:44
+#: settings/templates/settings/account.html:45
 msgid "New password"
 msgstr "新密码"
 
-#: settings/templates/settings/account.html:48
+#: settings/templates/settings/account.html:49
 msgid ""
 "Your password must be 8-20 characters long and contain both letters and "
 "numbers."
 msgstr ""
 
-#: settings/templates/settings/account.html:52
+#: settings/templates/settings/account.html:53
 msgid "Confirm new password"
 msgstr "确认新密码"
 
-#: settings/templates/settings/account.html:56
+#: settings/templates/settings/account.html:57
 msgid "Password did not match."
 msgstr ""
 
-#: settings/templates/settings/account.html:60
+#: settings/templates/settings/account.html:61
 msgid "Update Password"
 msgstr "更新密码"
 
-#: settings/templates/settings/account.html:62
+#: settings/templates/settings/account.html:63
 msgid "Forgot password?"
 msgstr ""
 
@@ -89,39 +89,39 @@ msgid "Personal Settings"
 msgstr "个人设置"
 
 #: settings/templates/settings/base.html:21
-#: settings/templates/settings/profile.html:4
+#: settings/templates/settings/profile.html:5
 msgid "Profile"
 msgstr "用户"
 
-#: settings/templates/settings/profile.html:13
+#: settings/templates/settings/profile.html:14
 msgid "Public Profile"
 msgstr "用户"
 
-#: settings/templates/settings/profile.html:18
+#: settings/templates/settings/profile.html:21
 msgid "First name"
 msgstr ""
 
-#: settings/templates/settings/profile.html:22
-#: settings/templates/settings/profile.html:33
+#: settings/templates/settings/profile.html:25
+#: settings/templates/settings/profile.html:36
 msgid "Required field."
 msgstr ""
 
-#: settings/templates/settings/profile.html:25
+#: settings/templates/settings/profile.html:28
 msgid "Your name may appear around OJ"
 msgstr "你的姓名可能会出现的网站的一些地方。"
 
-#: settings/templates/settings/profile.html:29
+#: settings/templates/settings/profile.html:32
 msgid "Last name"
 msgstr ""
 
-#: settings/templates/settings/profile.html:40
+#: settings/templates/settings/profile.html:43
 msgid "Email address"
 msgstr ""
 
-#: settings/templates/settings/profile.html:44
+#: settings/templates/settings/profile.html:47
 msgid "If you want to change you email adress."
 msgstr "如果你想更改你的邮箱地址。"
 
-#: settings/templates/settings/profile.html:44
+#: settings/templates/settings/profile.html:47
 msgid "Click here."
 msgstr "请点击这里。"

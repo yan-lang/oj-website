@@ -81,11 +81,13 @@
                                         {{ gradeunit.grade }}/{{ gradeunit.total_grade }}
                                     </div>
                                     <div class="col col-3 text-center text-secondary">
-                                        <a class="nostyle" data-toggle="collapse"
+                                        <a class="nostyle detail-expand" data-toggle="collapse"
                                            href="#collapsegradeunit{{ gradeunit.pk }}" role="button"
                                            aria-expanded="false"
                                            aria-controls="collapseExample">
-                                            <span>{% trans "Show Grading Report" %}</span>
+                                            <span class="show-prompt">{% trans "Show Grading Report" %}</span>
+                                            <span class="hide-prompt"
+                                                  style="display: none">{% trans "Hide Grading Report" %}</span>
                                         </a>
                                     </div>
                                 </div>

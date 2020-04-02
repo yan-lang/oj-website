@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 18:20+0800\n"
+"POT-Creation-Date: 2020-04-02 21:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,122 +18,155 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: oj/models.py:37
+#: oj/admin.py:10 oj/templates/oj/course/assignment.html:65
+msgid "Description"
+msgstr "说明"
+
+#: oj/admin.py:12
+msgid "Auto grader"
+msgstr "自动评测程序"
+
+#: oj/admin.py:21
+#, fuzzy
+#| msgid "Description"
+msgid "Registration"
+msgstr "说明"
+
+#: oj/admin.py:22
+#: oj/templates/oj/course/component/assignment/submissions.html:27
+msgid "Date"
+msgstr "日期"
+
+#: oj/models.py:11
+msgid "Will be used in course home page url"
+msgstr ""
+
+#: oj/models.py:14
+msgid "Enter a course name (e.g. Math, Chinese)."
+msgstr "请输入课程名称（例如: 数学，语文）"
+
+#: oj/models.py:17
+msgid "Enter a description for your course."
+msgstr "请输入课程简介"
+
+#: oj/models.py:39
 msgid "If you have any news to remind students, please enter here."
 msgstr "如果你有什么信息想提醒学生的，请在这里输入。"
 
-#: oj/templates/oj/course/base.html:28
-msgid "Assignments"
-msgstr "作业"
-
-#: oj/templates/oj/course/course_assignment.html:34
-#, fuzzy
-#| msgid "Passed?"
+#: oj/templates/oj/course/assignment.html:21
 msgid "Passed"
 msgstr "是否通过？"
 
-#: oj/templates/oj/course/course_assignment.html:34
-#: oj/templates/oj/course/course_assignment.html:51
-#: oj/templates/oj/course/course_assignment.html:177
+#: oj/templates/oj/course/assignment.html:21
+#: oj/templates/oj/course/assignment.html:24
+#: oj/templates/oj/course/component/assignment/submissions.html:30
 msgid "Score"
 msgstr "分数"
 
-#: oj/templates/oj/course/course_assignment.html:51
+#: oj/templates/oj/course/assignment.html:24
 msgid "In progress"
 msgstr "进行中"
 
-#: oj/templates/oj/course/course_assignment.html:69
+#: oj/templates/oj/course/assignment.html:29
 msgid "It seems that you have not started yet."
 msgstr "您似乎还没开始。"
 
-#: oj/templates/oj/course/course_assignment.html:84
+#: oj/templates/oj/course/assignment.html:45
 msgid "Deadline"
 msgstr "截止时间"
 
-#: oj/templates/oj/course/course_assignment.html:87
+#: oj/templates/oj/course/assignment.html:48
 msgid "The deadline of this assignment is"
 msgstr "作业截止日期是"
 
-#: oj/templates/oj/course/course_assignment.html:91
+#: oj/templates/oj/course/assignment.html:52
 msgid ""
 "You still have enough time to finish this assignment before the deadline."
 msgstr "您仍可以在课程结束前完成此作业。"
 
-#: oj/templates/oj/course/course_assignment.html:93
+#: oj/templates/oj/course/assignment.html:54
 msgid ""
 "Sorry, you have passed the deadline. Please finish the assignment as quick "
 "as possible."
 msgstr "对不起，您已经错过了截止日期。请尽快完成作业。"
 
-#: oj/templates/oj/course/course_assignment.html:104
-msgid "Description"
-msgstr "说明"
-
-#: oj/templates/oj/course/course_assignment.html:106
+#: oj/templates/oj/course/assignment.html:67
 msgid "Submission"
 msgstr "提交"
 
-#: oj/templates/oj/course/course_assignment.html:119
+#: oj/templates/oj/course/assignment.html:88
+msgid "Previous"
+msgstr "往前"
+
+#: oj/templates/oj/course/assignment.html:95
+msgid "Next"
+msgstr "往后"
+
+#: oj/templates/oj/course/base.html:28
+msgid "Assignments"
+msgstr "作业"
+
+#: oj/templates/oj/course/component/assignment/description.html:7
 msgid "The publisher did not provide any description."
 msgstr "发布者没有提供任何说明。"
 
-#: oj/templates/oj/course/course_assignment.html:125
+#: oj/templates/oj/course/component/assignment/description.html:13
 msgid "How to submit?"
 msgstr "如何提交"
 
-#: oj/templates/oj/course/course_assignment.html:126
+#: oj/templates/oj/course/component/assignment/description.html:14
 msgid ""
 "When you are ready, you can submit your solution at the 'My submission' tab."
 msgstr "准备好提交后，您可以在 '我提交的作业' 选项卡上，上传作业每部分的文件。"
 
-#: oj/templates/oj/course/course_assignment.html:137
-#: oj/templates/oj/course/course_assignment.html:146
+#: oj/templates/oj/course/component/assignment/submissions.html:7
+#: oj/templates/oj/course/component/assignment/submit.html:8
 msgid "Create submission"
 msgstr "新建提交"
 
-#: oj/templates/oj/course/course_assignment.html:155
-msgid "Choose file"
-msgstr "选择文件"
-
-#: oj/templates/oj/course/course_assignment.html:160
-msgid "Close"
-msgstr "关闭"
-
-#: oj/templates/oj/course/course_assignment.html:161
-msgid "Submit"
-msgstr "提交"
-
-#: oj/templates/oj/course/course_assignment.html:169
+#: oj/templates/oj/course/component/assignment/submissions.html:22
 msgid "Your submissions"
 msgstr "你的提交"
 
-#: oj/templates/oj/course/course_assignment.html:174
-msgid "Date"
-msgstr "日期"
-
-#: oj/templates/oj/course/course_assignment.html:180
+#: oj/templates/oj/course/component/assignment/submissions.html:33
 msgid "Passed?"
 msgstr "是否通过？"
 
-#: oj/templates/oj/course/course_assignment.html:226
+#: oj/templates/oj/course/component/assignment/submissions.html:60
+msgid "N/A"
+msgstr ""
+
+#: oj/templates/oj/course/component/assignment/submissions.html:67
+msgid "Being Graded"
+msgstr "正在评测"
+
+#: oj/templates/oj/course/component/assignment/submissions.html:88
 msgid "Show Grading Report"
 msgstr "显示评分报告"
 
-#: oj/templates/oj/course/course_assignment.html:234
+#: oj/templates/oj/course/component/assignment/submissions.html:90
+msgid "Hide Grading Report"
+msgstr "隐藏评分报告"
+
+#: oj/templates/oj/course/component/assignment/submissions.html:98
 msgid "Download"
 msgstr "下载"
 
-#: oj/templates/oj/course/course_assignment.html:246
+#: oj/templates/oj/course/component/assignment/submissions.html:111
 msgid "You have not submitted any solution yet."
 msgstr "你还未提交任何解答。"
 
-#: oj/templates/oj/course/course_assignment.html:263
-msgid "Previous"
-msgstr "往前"
+#: oj/templates/oj/course/component/assignment/submit.html:26
+msgid "Choose file"
+msgstr "选择文件"
 
-#: oj/templates/oj/course/course_assignment.html:270
-msgid "Next"
-msgstr "往后"
+#: oj/templates/oj/course/component/assignment/submit.html:38
+msgid "Close"
+msgstr "关闭"
+
+#: oj/templates/oj/course/component/assignment/submit.html:39
+msgid "Submit"
+msgstr "提交"
 
 #: oj/templates/oj/course_list.html:5
 msgid "Dashboard"

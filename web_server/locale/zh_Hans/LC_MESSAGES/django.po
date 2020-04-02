@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 18:20+0800\n"
+"POT-Creation-Date: 2020-04-02 21:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,42 +118,42 @@ msgstr ""
 msgid "Automatic evaluation system"
 msgstr "自动评测系统"
 
-#: templates/base.html:42 templates/registration/password_change_done.html:6
+#: templates/base.html:59 templates/registration/password_change_done.html:6
 #: templates/registration/password_change_form.html:7
 msgid "Home"
 msgstr "首页"
 
-#: templates/base.html:47
+#: templates/base.html:64
 msgid "Courses"
 msgstr "课程"
 
-#: templates/base.html:63
+#: templates/base.html:80
 msgid "Signed in as"
 msgstr "登陆为"
 
-#: templates/base.html:65
+#: templates/base.html:82
 msgid "Your profile"
 msgstr "你的主页"
 
-#: templates/base.html:67
+#: templates/base.html:84
 msgid "Help"
 msgstr "帮助"
 
-#: templates/base.html:68
+#: templates/base.html:85
 msgid "Settings"
 msgstr "设置"
 
-#: templates/base.html:69
+#: templates/base.html:86
 msgid "Sign out"
 msgstr "注销"
 
-#: templates/base.html:74
+#: templates/base.html:91
 #: templates/django_registration/registration_form.html:85
 #: templates/registration/login.html:60
 msgid "Sign in"
 msgstr "登陆"
 
-#: templates/base.html:75
+#: templates/base.html:92
 msgid "Sign up"
 msgstr "注册"
 

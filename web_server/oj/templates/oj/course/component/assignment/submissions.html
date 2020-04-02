@@ -3,7 +3,8 @@
 
 <div class='row pt-3'>
     <div class="col-md-12">
-        <button type="button" class="btn btn-primary create-submission" data-id="{% url 'oj:create_submission' assignment.pk %}">{% trans "Create submission" %}</button>
+        <button type="button" class="btn btn-primary create-submission"
+                data-id="{% url 'oj:create_submission' assignment.pk %}">{% trans "Create submission" %}</button>
     </div>
     <!-- Modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="submit_modal">
@@ -65,7 +66,7 @@
                             {% if not submission.gradereport %}
                                 {% trans "Being Graded" %}
                             {% else %}
-                                {{ submission.is_passed|yesno:"Yes, No" }}
+                                {{ submission.gradereport.is_passed | yesno:"Yes, No" }}
                             {% endif %}
                         </div>
                     </div>
@@ -95,7 +96,7 @@
                                             <a class="btn float-right" href="#">{% trans "Download" %}</a>
                                         </div>
                                         <div class="card-body">
-                                            <p class="card-text">{{ gradeunit.grade_report }}</p>
+                                            <p class="card-text">{{ gradeunit.detail |linebreaks }}</p>
                                         </div>
                                     </div>
                                 </div>

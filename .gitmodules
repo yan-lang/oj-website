@@ -1,0 +1,4 @@
+[submodule "judge_server/ycc_grader"]
+	path = judge_server/ycc_grader
+	url = https://github.com/yan-lang/ycc-grader.git
+	branch = master

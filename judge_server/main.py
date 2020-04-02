@@ -10,7 +10,8 @@ from time import sleep
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from judge_server.table import Submission
+from table import Submission, GradeUnit, GradeReport
+from ycc_grader.grader.lex import LexerGrader
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("Judge Server")
@@ -18,7 +19,24 @@ logger = logging.getLogger("Judge Server")
 
 def grade_submission(submission, session):
     logger.info("Start grading")
+    grader = LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
+    reports = grader.run(submission.submitted_file)
 
+    grade_units = []
+    grade = 0
+    total_grade = 0
+    for report in reports:
+        grade_units.append(GradeUnit(name=report.file_name,
+                                     grade=report.grade, total_grade=report.total_grade,
+                                     detail=report.render()))
+        grade += report.grade
+        total_grade += report.total_grade
+
+    grade_report = GradeReport(is_passed=grade == total_grade,
+                               grade=int(100 * (grade / total_grade)), total_grade=100,
+                               submission_id=submission.id,
+                               units=grade_units)
+    session.add(grade_report)
     logger.info("Grade done")
 
 
@@ -39,7 +57,7 @@ if __name__ == '__main__':
             logger.info("Found submission {0}/{1}...".format(submission.id, submission.submitted_file[:20]))
             submission.last_grade_time = datetime.now()
             grade_submission(submission, session)
-            submission.status = Submission.SUBMITTED
+            submission.status = Submission.GRADED
             session.commit()
 
     # 关闭Session:

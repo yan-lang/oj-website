@@ -12,6 +12,7 @@ from sqlalchemy.orm import sessionmaker
 
 from table import Submission, GradeUnit, GradeReport
 from ycc_grader.grader.lex import LexerGrader
+from ycc_grader.grader.common.report import AbstractReport
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("Judge Server")
@@ -20,15 +21,15 @@ logger = logging.getLogger("Judge Server")
 def grade_submission(submission, session):
     logger.info("Start grading")
     grader = LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
-    reports = grader.run(submission.submitted_file)
+    reports: [AbstractReport] = grader.run(submission.submitted_file)
 
     grade_units = []
     grade = 0
     total_grade = 0
     for report in reports:
-        grade_units.append(GradeUnit(name=report.file_name,
+        grade_units.append(GradeUnit(name=report.report_name,
                                      grade=report.grade, total_grade=report.total_grade,
-                                     detail=report.render()))
+                                     detail=report.detail))
         grade += report.grade
         total_grade += report.total_grade
 

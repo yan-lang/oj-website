@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from mdeditor.fields import MDTextField
 
@@ -93,6 +95,9 @@ class Submission(models.Model):
 
     def __str__(self):
         return self.assignment.__str__() + ": " + self.submitted_time.__str__()
+
+    def submitted_file_name(self):
+        return os.path.basename(self.submitted_file.name)
 
 
 class GradeReport(models.Model):

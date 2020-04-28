@@ -18,14 +18,22 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 logger = logging.getLogger("Judge Server")
 
 
+def get_grader(submission: Submission):
+    return LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
+
+
 def grade_submission(submission, session):
     logger.info("Start grading")
-    grader = LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
+
+    # 找出submission对应的grader
+    grader = get_grader(submission)
+
+    # 使用Grader进行评测
     reports: [AbstractReport] = grader.run(submission.submitted_file)
 
+    # 转换评测结果到数据库表的格式
     grade_units = []
-    grade = 0
-    total_grade = 0
+    grade, total_grade = 0, 0
     for report in reports:
         grade_units.append(GradeUnit(name=report.report_name,
                                      grade=report.grade, total_grade=report.total_grade,
@@ -37,7 +45,10 @@ def grade_submission(submission, session):
                                grade=int(100 * (grade / total_grade)), total_grade=100,
                                submission_id=submission.id,
                                units=grade_units)
+
+    # 保存评测结果到数据库
     session.add(grade_report)
+
     logger.info("Grade done")
 
 

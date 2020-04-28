@@ -7,6 +7,16 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 
+class Assignment(Base):
+    __tablename__ = 'oj_assignment'
+
+    id = Column(Integer, primary_key=True)
+    grader = Column(SmallInteger)
+
+    LEXER_GRADER = 0
+    PARSER_GRADER = 1
+
+
 class Submission(Base):
     __tablename__ = 'oj_submission'
 
@@ -15,6 +25,10 @@ class Submission(Base):
     submitted_file = Column(String(300))
     status = Column(SmallInteger)
     last_grade_time = Column(DateTime)
+
+    assignment_id = Column(Integer, ForeignKey("oj_assignment.id"))
+
+    assignment = relationship("Assignment")
 
     SUBMITTED = 0
     GRADING = 1

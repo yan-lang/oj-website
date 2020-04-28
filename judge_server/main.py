@@ -10,16 +10,21 @@ from time import sleep
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from table import Submission, GradeUnit, GradeReport
+from table import Submission, GradeUnit, GradeReport, Assignment
+from ycc_grader.grader.common import BaseGrader
 from ycc_grader.grader.lex import LexerGrader
-from ycc_grader.grader.common.report import AbstractReport
+from ycc_grader.grader.common.report import BaseReport
+from ycc_grader.grader.parse import ParserGrader
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("Judge Server")
 
 
-def get_grader(submission: Submission):
-    return LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
+def get_grader(submission: Submission) -> BaseGrader:
+    if submission.assignment.grader == Assignment.LEXER_GRADER:
+        return LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
+    elif submission.assignment.grader == Assignment.PARSER_GRADER:
+        return ParserGrader(test_code_dir='ycc_grader/public/code/parse', test_gold_dir='ycc_grader/public/golden/parse')
 
 
 def grade_submission(submission, session):
@@ -29,7 +34,7 @@ def grade_submission(submission, session):
     grader = get_grader(submission)
 
     # 使用Grader进行评测
-    reports: [AbstractReport] = grader.run(submission.submitted_file)
+    reports: [BaseReport] = grader.grade(submission.submitted_file)
 
     # 转换评测结果到数据库表的格式
     grade_units = []

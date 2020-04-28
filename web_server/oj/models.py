@@ -30,13 +30,21 @@ class Course(models.Model):
 
 
 class Assignment(models.Model):
+    LEXER_GRADER = 0
+    PARSER_GRADER = 1
+
+    GRADER_CHOICES = [
+        (LEXER_GRADER, "Lexer grader"),
+        (PARSER_GRADER, "Parser grader"),
+    ]
+
     name = models.CharField(max_length=200,
                             help_text="Enter a assignment name.")
 
     description = MDTextField(blank=True,
                               help_text="Enter a description for your assignment.")
 
-    grader = models.FileField(blank=True)
+    grader = models.SmallIntegerField(choices=GRADER_CHOICES)
 
     alert = models.TextField(blank=True, help_text=_("If you have any news to remind students, please enter here."))
 

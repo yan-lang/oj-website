@@ -22,8 +22,10 @@ logger = logging.getLogger("Judge Server")
 
 def get_grader(submission: Submission) -> BaseGrader:
     if submission.assignment.grader == Assignment.LEXER_GRADER:
+        logger.info("Use Lexer Grader")
         return LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
     elif submission.assignment.grader == Assignment.PARSER_GRADER:
+        logger.info("Use Parser Grader")
         return ParserGrader(test_code_dir='ycc_grader/public/code/parse', test_gold_dir='ycc_grader/public/golden/parse')
 
 

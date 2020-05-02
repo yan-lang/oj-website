@@ -32,10 +32,12 @@ class Course(models.Model):
 class Assignment(models.Model):
     LEXER_GRADER = 0
     PARSER_GRADER = 1
+    SEMANTIC_GRADER = 2
 
     GRADER_CHOICES = [
         (LEXER_GRADER, "Lexer grader"),
         (PARSER_GRADER, "Parser grader"),
+        (SEMANTIC_GRADER, "Semantic grader"),
     ]
 
     name = models.CharField(max_length=200,

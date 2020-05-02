@@ -11,22 +11,28 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from table import Submission, GradeUnit, GradeReport, Assignment
-from ycc_grader.grader.common import BaseGrader
+from ycc_grader.grader.common import Grader
 from ycc_grader.grader.lex import LexerGrader
 from ycc_grader.grader.common.report import BaseReport
 from ycc_grader.grader.parse import ParserGrader
+from ycc_grader.grader.semantic import SemanticGrader
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("Judge Server")
 
 
-def get_grader(submission: Submission) -> BaseGrader:
+def get_grader(submission: Submission) -> Grader:
     if submission.assignment.grader == Assignment.LEXER_GRADER:
         logger.info("Use Lexer Grader")
         return LexerGrader(test_code_dir='ycc_grader/public/code/lexer', test_gold_dir='ycc_grader/public/golden/lexer')
     elif submission.assignment.grader == Assignment.PARSER_GRADER:
         logger.info("Use Parser Grader")
-        return ParserGrader(test_code_dir='ycc_grader/public/code/parse', test_gold_dir='ycc_grader/public/golden/parse')
+        return ParserGrader(test_code_dir='ycc_grader/public/code/parse',
+                            test_gold_dir='ycc_grader/public/golden/parse')
+    elif submission.assignment.grader == Assignment.SEMANTIC_GRADER:
+        logger.info("Use Semantic Grader")
+        return SemanticGrader(test_code_dir='ycc_grader/public/code/semantic',
+                              test_gold_dir='ycc_grader/public/golden/semantic')
 
 
 def grade_submission(submission, session):

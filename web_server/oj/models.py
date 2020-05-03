@@ -27,7 +27,7 @@ class Course(models.Model):
     update_date = models.DateTimeField(blank=True)
 
     # -- Foreign key --
-    student = models.ManyToManyField(User)
+    student = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.name

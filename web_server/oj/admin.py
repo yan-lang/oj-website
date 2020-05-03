@@ -17,10 +17,9 @@ class AssignmentAdmin(admin.ModelAdmin):
 
 class CourseAdmin(admin.ModelAdmin):
     fieldsets = (
-        (None, {'fields': ('identifier', 'name', 'description')}),
+        (None, {'fields': ('identifier', 'name', 'description', 'detail_description')}),
         (_('Registration'), {'fields': ('student',)}),
-        (_('Date'), {'fields': ('create_date', 'update_date'),
-                     'classes': ('collapse',)}),
+        (_('Date'), {'fields': ('create_date', 'update_date')}),
     )
 
     filter_horizontal = ('student',)

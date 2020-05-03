@@ -32,6 +32,12 @@ class CourseDetailView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data(**kwargs)
         assignments = Assignment.objects.filter(course=self.object)
         context['assignments'] = assignments
+        self.object.detail_description = markdown.markdown(self.object.detail_description,
+                                                           extensions=[
+                                                               'markdown.extensions.extra',
+                                                               'markdown.extensions.codehilite',  # 代码高亮
+                                                               'markdown.extensions.toc'
+                                                           ])
         return context
 
 

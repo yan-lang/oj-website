@@ -19,6 +19,9 @@ class Course(models.Model):
     description = models.TextField(blank=True,
                                    help_text=_("Enter a description for your course."))
 
+    detail_description = MDTextField(blank=True,
+                                     help_text="Enter a detail description for your course.")
+
     # --  Dates --
     create_date = models.DateTimeField(blank=True)
     update_date = models.DateTimeField(blank=True)

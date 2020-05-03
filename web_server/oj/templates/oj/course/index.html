@@ -4,6 +4,14 @@
     {{ course.name }}
 {% endblock %}
 
-{% block course_content %}
 
+{% block stylesheet %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/markdown.css' %}>
+{% endblock %}
+
+
+{% block course_content %}
+    <div class="markdown-body">{{ course.detail_description | safe }}</div>
 {% endblock %}

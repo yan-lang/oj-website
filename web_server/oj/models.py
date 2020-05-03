@@ -1,3 +1,4 @@
+import datetime
 import os
 
 from django.db import models
@@ -74,8 +75,9 @@ class Student(models.Model):
 
 
 def submission_file_path(instance, filename):
-    return '%s/protected/%s/%s/%s' % (settings.MEDIA_ROOT, instance.user.pk,
-                                      instance.assignment.pk, filename)
+    return '%s/protected/%s/%s/%s/%s' % (settings.MEDIA_ROOT, instance.user.pk,
+                                         instance.assignment.pk, datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S"),
+                                         filename)
 
 
 class Submission(models.Model):

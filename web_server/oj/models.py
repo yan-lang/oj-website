@@ -9,7 +9,6 @@ from django.utils.translation import gettext as _
 
 from website import settings
 
-
 class Course(models.Model):
     identifier = models.SlugField(max_length=100, help_text=_("Will be used in course home page url"), unique=True)
 

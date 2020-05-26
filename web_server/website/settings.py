@@ -48,6 +48,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
+    'django_extensions',
 
     'django.contrib.admin',
     'django.contrib.auth',

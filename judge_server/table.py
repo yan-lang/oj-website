@@ -16,6 +16,7 @@ class Assignment(Base):
     LEXER_GRADER = 0
     PARSER_GRADER = 1
     SEMANTIC_GRADER = 2
+    IR_GRADER = 3
 
 
 class Submission(Base):

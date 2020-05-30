@@ -12,6 +12,7 @@ from sqlalchemy.orm import sessionmaker
 
 from table import Submission, GradeUnit, GradeReport, Assignment
 from ycc_grader.grader.common import Grader
+from ycc_grader.grader.ir import IRGrader
 from ycc_grader.grader.lex import LexerGrader
 from ycc_grader.grader.common.report import BaseReport
 from ycc_grader.grader.parse import ParserGrader
@@ -33,6 +34,10 @@ def get_grader(submission: Submission) -> Grader:
         logger.info("Use Semantic Grader")
         return SemanticGrader(test_code_dir='ycc_grader/public/code/semantic',
                               test_gold_dir='ycc_grader/public/golden/semantic')
+    elif submission.assignment.grader == Assignment.IR_GRADER:
+        logger.info("Use Intermediate Language Grader")
+        return IRGrader(test_code_dir='ycc_grader/public/code/ir',
+                              test_gold_dir='')
 
 
 def grade_submission(submission, session):

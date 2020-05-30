@@ -9,6 +9,7 @@ from django.utils.translation import gettext as _
 
 from website import settings
 
+
 class Course(models.Model):
     identifier = models.SlugField(max_length=100, help_text=_("Will be used in course home page url"), unique=True)
 
@@ -36,11 +37,13 @@ class Assignment(models.Model):
     LEXER_GRADER = 0
     PARSER_GRADER = 1
     SEMANTIC_GRADER = 2
+    IR_GRADER = 3
 
     GRADER_CHOICES = [
         (LEXER_GRADER, "Lexer grader"),
         (PARSER_GRADER, "Parser grader"),
         (SEMANTIC_GRADER, "Semantic grader"),
+        (IR_GRADER, "Intermediate Code grader"),
     ]
 
     name = models.CharField(max_length=200,

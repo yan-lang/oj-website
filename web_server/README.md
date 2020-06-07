@@ -1,29 +1,46 @@
-https://stackoverflow.com/questions/22470637/django-show-validationerror-in-template
+# Web Server
 
-https://wsvincent.com/django-user-authentication-tutorial-password-reset/
+评测网站的网页服务器，基于Django实现。
 
-https://github.com/django/django/tree/master/django/contrib/admin/templates/registration
+## Django Command
 
+```
+django-admin makemessages -a
+```
 
 ## Deployment
 
+部署指南
+
+1. 配置Django项目
+
 ```shell script
+git clone https://github.com/yan-lang/oj-website.git
+cd oj-website/web_server
+python manage migrate
 python manage.py collectstatic
+python manage.py createsuperuser
+django-admin compilemessages
 ```
 
-```shell script
-uwsgi --chdir /home/ubuntu/oj-website --module website.wsgi:application --home /home/ubuntu/django/ --http :8888
+2. 配置UWSGI
 
-uwsgi --reload xxx.pid
-uwsgi --stop xxx.pid
+```shell script
+pip3 install uwsgi # python2可能会有问题
+uwsgi --ini config.ini
+
+uwsgi --reload uwsgi.pid
+uwsgi --stop uwsgi.pid
 
 ps -aux | grep uwsgi
 ps -aux | grep uwsgi |awk '{print $2}'|xargs kill -9
 ```
 
-**nginx**
+3. 配置Nginx
 
 ```shell script
+/etc/nginx/sites-enabled/  配置文件路径
+
 ps -ef|grep -i nginx
 
 nginx -t  # 检查nginx语法问题
@@ -41,37 +58,3 @@ killall nginx    杀死所有nginx
 - https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
 - http://www.chenxm.cc/article/87.html
 - https://www.zhihu.com/question/54982081/answer/656763472
-
-**Http ~ Https**
-
-```
-server {
-    listen 80;
-    server_name zeqianglai.com www.zeqianglai.cn;
-    return 301 https://$server_name$request_uri;
-}
-```
-
-```python
-class MixedPermissionModelViewSet(viewsets.ModelViewSet):
-    """
-    Mixed permission base model allowing for action level
-    permission control. Subclasses may define their permissions
-    by creating a 'permission_classes_by_action' variable.
-
-    Example:
-    permission_classes_by_action = {'list': [AllowAny],
-                                    'create': [IsAdminUser]}
-    """
-
-    permission_classes_by_action = {}
-
-    def get_permissions(self):
-        try:
-            # return permission_classes depending on `action`
-            return [permission() for permission in self.permission_classes_by_action[self.action]]
-        except KeyError:
-            # action is not set return default permission_classes
-            return [permission() for permission in self.permission_classes]
-
-```

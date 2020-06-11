@@ -59,7 +59,8 @@
                             {% if not submission.gradereport %}
                                 {% trans "N/A" %}
                             {% else %}
-                                {{ submission.gradereport.grade }}/{{ submission.gradereport.total_grade }}
+                                {{ submission.gradereport.grade | stringformat:"d" }}/
+                                {{ submission.gradereport.total_grade | stringformat:"d" }}
                             {% endif %}
                         </div>
                         <div class="col col-3 text-center">
@@ -78,7 +79,7 @@
                                         {{ gradeunit.name }}
                                     </div>
                                     <div class="col col-2 text-right text-secondary">
-                                        {{ gradeunit.grade }}/{{ gradeunit.total_grade }}
+                                        {{ gradeunit.grade | stringformat:"d" }}/{{ gradeunit.total_grade | stringformat:"d" }}
                                     </div>
                                     <div class="col col-3 text-center text-secondary">
                                         <a class="nostyle detail-expand" data-toggle="collapse"

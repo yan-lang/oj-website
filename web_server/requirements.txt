@@ -4,7 +4,7 @@ chardet==3.0.4
 confusable-homoglyphs==3.2.0
 coreapi==2.3.3
 coreschema==0.0.4
-Django==3.0.7
+Django==3.1.6
 django-admin-interface==0.12.1
 django-bootstrap-modal-forms==1.5.0
 django-colorfield==0.2.1

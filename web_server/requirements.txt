@@ -15,7 +15,7 @@ django-flat-theme==1.1.4
 django-mdeditor==0.1.18
 django-registration==3.1
 django-widget-tweaks==1.4.8
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 idna==2.9
 itypes==1.1.0
 Jinja2==2.11.1
